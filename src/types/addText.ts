@@ -19,6 +19,8 @@ export type Benefit = {
 export type FAQItemProps = {
   question: string;
   answer: string;
+  category?: string;
+  featured?: boolean;
 };
 
 export interface Testimonial {

@@ -9,8 +9,9 @@ export default defineConfig({
       "~": path.resolve(__dirname, "src") + "/",
     },
   },
-  base: "./",
+  base: "/",
+
   server: {
-    open: "/portraits_lviv",
+    open: true,
   },
 });

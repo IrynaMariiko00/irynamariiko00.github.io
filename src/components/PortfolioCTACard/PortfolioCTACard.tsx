@@ -11,7 +11,7 @@ export const PortfolioCTACard = () => {
         <p className="text-xs uppercase tracking-widest text text-gray mb-8">
           Let's create yours
         </p>
-        <Link to="/#contact" className="glass-btn">
+        <Link to="/commision" className="glass-btn">
           Order a Portrait
         </Link>
       </div>

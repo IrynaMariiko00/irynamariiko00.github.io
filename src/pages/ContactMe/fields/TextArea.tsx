@@ -15,7 +15,7 @@ const TextArea = ({ label, input, onChange }: FieldProps) => {
         required={input.required}
         rows={3}
         onChange={(e) => onChange?.(e.target.value)}
-        className="w-full bg-transparent no-scrollbar placeholder:text-[var(--color-border-dark)] border border-[var(--color-border)] rounded-2xl py-4 px-3 text-[var(--primary-color)] outline-none focus:border-blue transition-colors resize-none min-h-[120px]"
+        className="w-full bg-transparent no-scrollbar placeholder:text-[var(--color-border-dark)] border border-[var(--color-border)] rounded-2xl py-4 px-3 text-[var(--primary-color)] outline-none resize-none min-h-[120px]"
       />
     </div>
   );

@@ -1,4 +1,4 @@
-import type { Benefit } from "~/types/addText";
+import type { Benefit, FAQItemProps } from "~/types/addText";
 
 const blueShadowClass = "text-blue text-shadow-[var(--text-shadow-dark)]";
 
@@ -171,30 +171,126 @@ export const STATS = [
   "Museum Quality Materials",
 ];
 
-export const featuredQuestions = [
+export const typeOfQuestion = [
+  {
+    id: "all",
+    label: "All",
+  },
+  {
+    id: "process",
+    label: "Process",
+  },
+  {
+    id: "popular",
+    label: "Popular",
+  },
+  {
+    id: "prices and delivery",
+    label: "Prices and Delivery",
+  },
+  {
+    id: "quick links",
+    label: "Quick Links",
+  },
+];
+
+export const questions: FAQItemProps[] = [
   {
     question: "Is this fully manual work?",
     answer:
       "Absolutely! Each piece is a unique artwork, hand-painted with love and attention to detail. No digital prints—just real art.",
+    category: "popular",
+    featured: true,
   },
   {
     question: "How long does it take to create a painting?",
     answer:
       "The timeline varies depending on the style, size, and the number of people in the portrait. On average, it takes between 3 days and 2 weeks to bring your idea to life.",
+    category: "process",
+    featured: true,
   },
   {
     question: "Is international shipping available?",
     answer:
       "Yes, I deliver to any part of the world. Please allow extra time for international logistics and customs.",
+    category: "prices and delivery",
+    featured: true,
   },
   {
     question: "Do you offer framing and packaging services?",
     answer:
       "Certainly. You can choose to have your artwork framed and gift-wrapped upon request.",
+    category: "popular",
+    featured: true,
   },
   {
     question: "Where can I see the prices?",
     answer:
       "You can check our standard rates here [посилання] or use our integrated AI calculator to get a quick quote based on your preferences.",
+    category: "quick links",
+    featured: true,
+  },
+  {
+    question: "What material is the portrait created on?",
+    answer:
+      "The portrait is drawn on thick white cardboard, which allows the pencil to be carefully blended and helps keep the artwork smooth and undamaged.",
+    category: "process",
+    featured: false,
+  },
+  {
+    question: "Can I order a portrait painted with paints?",
+    answer: "No, all portraits are created exclusively in pencil.",
+    category: "process",
+    featured: false,
+  },
+  {
+    question: "What payment methods are available for ordering a portrait?",
+    answer:
+      "You can pay for the portrait using several convenient methods. Payment details will be provided after we confirm your order (Payoneer or bank card transfer).",
+    category: "prices and delivery",
+    featured: false,
+  },
+  {
+    question: "How long does the delivery process take?",
+    answer:
+      "The delivery time depends on the country where the portrait needs to be shipped. On average, international delivery takes about 10–21 days, depending on the destination and the local postal service.",
+    category: "prices and delivery",
+    featured: false,
+  },
+  {
+    question: "Can I order a video of the portrait creation process?",
+    answer:
+      "Yes, you can request a video showing the portrait being created. You can watch an example here.",
+    category: "popular",
+    featured: false,
+  },
+  {
+    question: "Where can I see examples of your work?",
+    answer:
+      "You can find examples of my portraits in the Portfolio section on the website.",
+    category: "quick links",
+    featured: false,
+  },
+  {
+    question: "Where can I read client testimonials?",
+    answer:
+      "You can read feedback from my clients in the Testimonials section on the website.",
+    category: "quick links",
+    featured: false,
+  },
+  {
+    question:
+      "Where can I learn more about the whole process from ordering to receiving the portrait?",
+    answer:
+      "You can read a detailed description of the entire process, from placing an order to receiving your portrait, in the Process section on the website.",
+    category: "quick links",
+    featured: false,
+  },
+  {
+    question: "Is it a problem if my photo is low quality?",
+    answer:
+      "No, it’s not a problem. You can send me the photo you have, and I will improve its quality using AI and help you choose the best reference photo for the portrait.",
+    category: "popular",
+    featured: false,
   },
 ];

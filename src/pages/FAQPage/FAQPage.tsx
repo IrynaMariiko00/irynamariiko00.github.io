@@ -1,17 +1,23 @@
 import { Reveal } from "~/components/ui/Reveal";
 import LiquidBackground from "~/components/ui/LiquidBackground/LiquidBackground";
-import { featuredQuestions } from "~/constants/addText";
-import { MessageCircle, Mail, Instagram, ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { questions } from "~/constants/addText";
 import FAQItem from "~/components/FAQItem/FAQItem";
+import { useSearchAndFilter } from "~/hooks/useSearchAndFilterItems";
+import SearchAndFilter from "~/components/ui/SearchAndFilter/SearchAndFilter";
+import BlankCanvas from "~/components/ui/BlankCanvas/BlankCanvas";
 
 const FAQPage = () => {
+  const { filteredItems, ...searchProps } = useSearchAndFilter(
+    questions,
+    ["question", "answer"],
+    "category",
+  );
+
   return (
-    <section className="relative min-h-screen pt-32 pb-20 px-6">
+    <section className="relative min-h-screen py-36 px-6 scroll-smooth overflow-hidden">
       <LiquidBackground />
 
-      <div className="max-w-4xl mx-auto relative z-10">
-        {/* Header */}
+      <div className="mx-auto relative z-10 max-w-6xl">
         <div className="mb-16">
           <Reveal direction="up">
             <h1 className="extra-big leading-tight">
@@ -27,91 +33,21 @@ const FAQPage = () => {
           </Reveal>
         </div>
 
-        {/* FAQ List */}
-        <ul className="flex flex-col gap-4 mb-24">
-          {featuredQuestions.map((item, i) => (
-            <Reveal key={i} direction="up" delay={i * 0.1}>
-              <FAQItem question={item.question} answer={item.answer} />
-            </Reveal>
-          ))}
-        </ul>
+        <Reveal direction="right" delay={0.4}>
+          <SearchAndFilter {...searchProps} />
+        </Reveal>
 
-        {/* Grid for Additional Info */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Ask a Question Section */}
-          <Reveal direction="right">
-            <div className="glass-card p-8 h-full flex flex-col justify-between">
-              <div>
-                <h3 className="text-2xl font-light text-white mb-4">
-                  Still have questions?
-                </h3>
-                <p className="text-sm text-gray mb-8">
-                  I'm here to help. Message me directly, and I'll guide you
-                  through the process.
-                </p>
-              </div>
-
-              <div className="flex flex-wrap gap-4">
-                <a
-                  href="https://t.me/yourusername"
-                  className="flex items-center gap-2 text-blue hover:text-white transition-colors"
-                >
-                  <MessageCircle size={20} /> Telegram
-                </a>
-                <a
-                  href="mailto:your@email.com"
-                  className="flex items-center gap-2 text-blue hover:text-white transition-colors"
-                >
-                  <Mail size={20} /> Email
-                </a>
-                <a
-                  href="https://instagram.com/yourprofile"
-                  className="flex items-center gap-2 text-blue hover:text-white transition-colors"
-                >
-                  <Instagram size={20} /> Instagram
-                </a>
-              </div>
-            </div>
-          </Reveal>
-
-          {/* Quick Links Section */}
-          <Reveal direction="left">
-            <div className="glass-card p-8 h-full bg-blue/5 border-blue/10">
-              <h3 className="text-2xl font-light text-white mb-4">
-                Quick Links
-              </h3>
-              <div className="flex flex-col gap-4">
-                <Link
-                  to="/price"
-                  className="group flex items-center justify-between p-3 rounded-xl hover:bg-white/5 transition-all"
-                >
-                  <span className="text-gray group-hover:text-white">
-                    Price Calculator
-                  </span>
-                  <ArrowRight size={18} className="text-blue" />
-                </Link>
-                <Link
-                  to="/portfolio"
-                  className="group flex items-center justify-between p-3 rounded-xl hover:bg-white/5 transition-all"
-                >
-                  <span className="text-gray group-hover:text-white">
-                    Full Portfolio
-                  </span>
-                  <ArrowRight size={18} className="text-blue" />
-                </Link>
-                <Link
-                  to="/testimonials"
-                  className="group flex items-center justify-between p-3 rounded-xl hover:bg-white/5 transition-all"
-                >
-                  <span className="text-gray group-hover:text-white">
-                    Client Reviews
-                  </span>
-                  <ArrowRight size={18} className="text-blue" />
-                </Link>
-              </div>
-            </div>
-          </Reveal>
-        </div>
+        {filteredItems.length > 0 ? (
+          <ul className="flex flex-col gap-4 mb-24">
+            {filteredItems.map((item, i) => (
+              <Reveal key={i} direction="up" delay={i * 0.1}>
+                <FAQItem question={item.question} answer={item.answer} />
+              </Reveal>
+            ))}
+          </ul>
+        ) : (
+          <BlankCanvas />
+        )}
       </div>
     </section>
   );

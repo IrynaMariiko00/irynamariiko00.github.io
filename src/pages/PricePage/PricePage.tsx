@@ -28,7 +28,7 @@ const PricePage = () => {
           ))}
         </div>
         <Reveal direction="up" delay={0.5}>
-          <div className="mt-24 max-w-2xl mx-auto text-center p-8 rounded-3xl bg-white/[0.01] border border-white/5 backdrop-blur-md">
+          <div className="mt-24 max-w-2xl mx-auto text-center p-8 rounded-3xl bg-white/[0.01] border border-[var(--color-border)] backdrop-blur-md">
             <p className="text-gray/50 text-xs uppercase tracking-[0.3em] mb-4">
               Terms & Delivery
             </p>

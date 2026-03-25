@@ -1,7 +1,7 @@
 export interface Section {
   label?: string;
   text?: string;
-  type?: "stepper";
+  type?: "stepper" | "form";
   steps?: string[];
 }
 
@@ -11,19 +11,21 @@ export interface BaseModalProps {
   title?: string;
   children: React.ReactNode;
   confirmButton?: {
-    label: string;
-    to: string;
+    label?: string;
+    to?: string;
+    onClick?: () => void;
   };
   cancelButtonLabel?: string;
   footer?: React.ReactNode;
 }
 
 interface ModalButton {
-  label: string;
-  to: string;
+  label?: string;
+  to?: string;
+  onClick?: () => void;
 }
 
-interface ModalData {
+export interface ModalData {
   title: string;
   sections: Section[];
   confirmButton?: ModalButton;
