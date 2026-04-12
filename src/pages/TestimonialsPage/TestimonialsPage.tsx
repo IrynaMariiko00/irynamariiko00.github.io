@@ -41,11 +41,11 @@ const TestimonialsPage = () => {
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
-              <span className="absolute top-2 right-4 text-8xl font-bold text-[var(--color-border)] pointer-events-none select-none">
+              <span className="absolute top-2 right-4 hidden md:block md:text-6xl lg:text-8xl font-bold text-[var(--color-border)] pointer-events-none select-none">
                 {item.year}
               </span>
 
-              <div className="w-full md:w-[60%] p-8 lg:p-12 flex flex-col justify-center gap-6 relative">
+              <div className="w-full md:w-[60%] p-2 md:p-8 lg:p-12 flex flex-col justify-center gap-6 relative">
                 <div className="space-y-1 ml-4 relative z-10">
                   <h3 className="text-xl font-light text text-gray tracking-wide uppercase">
                     {item.title}

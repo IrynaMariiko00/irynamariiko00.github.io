@@ -30,7 +30,7 @@ const SearchAndFilter = ({
           onClick={clearInput}
         />
       </div>
-      <div className="flex justify-start gap-4 mb-12 pl-2 items-center ">
+      <div className="grid grid-cols-2 gap-2 lg:gap-4 mb-12 pl-2 items-center md:flex md:justify-start">
         <p className="text-[1rem] text text-gray">Filter by:</p>
         {typeOfQuestion.map((type) => {
           const isCurrentActive = activeId === type.id;
@@ -38,7 +38,7 @@ const SearchAndFilter = ({
             <button
               onClick={() => setActiveId(type.id)}
               key={type.id}
-              className={`text-[0.8rem] py-2 glass-btn ${isCurrentActive ? "bg-[var(--color-border)] border-[var(--color-blue-light)] shadow-[0_0_20px_var(--color-border-hover),inset_0_0_10px_var(--color-glass)] -translate-y-[2px]" : ""}`}
+              className={`text-[0.8rem] py-1 px-3 md:px-6 md:py-2 glass-btn ${isCurrentActive ? "bg-[var(--color-border)] border-[var(--color-blue-light)] shadow-[0_0_20px_var(--color-border-hover),inset_0_0_10px_var(--color-glass)] -translate-y-[2px]" : ""}`}
             >
               {type.label}
             </button>

@@ -30,15 +30,15 @@ const BaseModal = ({
         onClick={onClose}
       />
 
-      <div className="relative md:w-[50%] max-w-4xl">
+      <div className="relative w-[90%] md:w-[70%] xl:w-[50%] max-w-4xl">
         <CloseIcon
           onClick={onClose}
-          className="absolute right-0 md:-right-16 w-10 h-10 text text-gray hover:text-[var(--color-primary)] transition-opacity cursor-pointer z-30"
+          className="absolute right-4 top-4 md:top-0 md:-right-16 w-6 h-6 md:w-10 md:h-10 text text-gray hover:text-[var(--color-primary)] transition-opacity cursor-pointer z-30"
         />
 
         <dialog
           open
-          className="max-h-[75vh] w-full z-20 bg-[--color-gray] glass-card p-4 md:p-10 rounded-xl shadow-2xl border border-[var(--color-border-dark)]"
+          className="max-h-[80vh] md:max-h-[75vh] w-full z-20 bg-[--color-gray] glass-card p-4 md:p-10 rounded-xl shadow-2xl border border-[var(--color-border-dark)]"
         >
           {title && (
             <h1 className="big-bold text-[var(--color-extra-light-blue)] mb-4 text-center uppercase tracking-widest">
@@ -52,7 +52,7 @@ const BaseModal = ({
           >
             {children}
           </form>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-16 mt-8 max-w-sm mx-auto w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-16 mt-8 max-w-sm mx-auto w-full">
             <button
               onClick={onClose}
               className="glass-btn flex items-center justify-center px-12 h-[45px] min-w-[20%] rounded-lg uppercase text-sm tracking-widest text-center"

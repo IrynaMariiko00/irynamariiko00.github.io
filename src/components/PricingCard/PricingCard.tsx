@@ -21,7 +21,7 @@ const PricingCard = ({
   return (
     <div className="group relative h-full">
       <div
-        className={`glass-card bg-[var(--color-glass-bg)] p-12 pb-0 h-full flex flex-col ${isPopular ? "shadow-[0_0_15px_var(--color-blue-hover-dark),inset_0_0_20px_var(--color-glass-btn-shadow)] border-[var(--color-blue-hover-dark)] hover:border-[var(--color-blue-hover-dark)]" : ""}`}
+        className={`glass-card bg-[var(--color-glass-bg)] p-4 md:p-6 xl:p-12 pb-0 h-full flex flex-col ${isPopular ? "shadow-[0_0_15px_var(--color-blue-hover-dark),inset_0_0_20px_var(--color-glass-btn-shadow)] border-[var(--color-blue-hover-dark)] hover:border-[var(--color-blue-hover-dark)]" : ""}`}
       >
         {isPopular && (
           <div className="absolute top-0 right-0 bg-[var(--color-blue-dark)] px-2 rounded-bl-xl">
@@ -30,7 +30,9 @@ const PricingCard = ({
         )}
         <div className="relative flex justify-between items-end mb-4">
           <h2 className="title font-normal mb-0">{size}</h2>
-          <p className="small-text">{dimensions}</p>
+          <p className="small-text text-[10px] lg:text-[14px] xl:text-[18px]">
+            {dimensions}
+          </p>
         </div>
 
         <p className="text text-gray max-w-[280px] font-light mt-4 mb-8">

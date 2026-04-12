@@ -5,7 +5,7 @@ import PricingCard from "~/components/PricingCard/PricingCard";
 
 const PricePage = () => {
   return (
-    <section className="relative min-h-screen py-36 px-6 scroll-smooth overflow-hidden">
+    <section className="relative min-h-screen py-24 xl:py-36 px-6 scroll-smooth overflow-hidden">
       <LiquidBackground />
 
       <div className="max-w-6xl mx-auto">
@@ -15,7 +15,7 @@ const PricePage = () => {
           </h1>
         </Reveal>
 
-        <div className="grid my-[5%] grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-stretch">
+        <div className="grid my-[5%] grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-stretch">
           {PRICES.map((group, index) => (
             <Reveal
               key={group.size}
@@ -28,7 +28,7 @@ const PricePage = () => {
           ))}
         </div>
         <Reveal direction="up" delay={0.5}>
-          <div className="mt-24 max-w-2xl mx-auto text-center p-8 rounded-3xl bg-white/[0.01] border border-[var(--color-border)] backdrop-blur-md">
+          <div className="mt-12 lg:mt-24 max-w-2xl mx-auto text-center p-8 rounded-3xl bg-white/[0.01] border border-[var(--color-border)] backdrop-blur-md">
             <p className="text-gray/50 text-xs uppercase tracking-[0.3em] mb-4">
               Terms & Delivery
             </p>

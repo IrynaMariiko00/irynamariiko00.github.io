@@ -28,7 +28,7 @@ const Hero = () => {
           <Link
             smooth
             to="#benefits"
-            className="blue-btn px-[27px] py-[18px] text-mont text-[22px]"
+            className="blue-btn px-[20px] py-[14px] text-[16px] xl:px-[27px] xl:py-[18px] text-mont xl:text-[22px]"
           >
             Get Started
           </Link>

@@ -5,7 +5,7 @@ const ContactForm = () => {
     <form
       action="/send"
       method="POST"
-      className="glass-card mt-[3%] pb-[5%] px-[5%] w-[100%] mx-auto relative overflow-hidden"
+      className="glass-card mt-[8%] xl:mt-[3%] pb-[5%] px-[5%] w-[100%] mx-auto relative overflow-hidden"
     >
       <div className="flex flex-col md:flex-row justify-between gap-12 min-h-[200px] relative z-10">
         <fieldset className="w-full md:w-[35%] flex flex-col gap-8">

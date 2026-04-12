@@ -1,7 +1,7 @@
 import { useState } from "react";
 import type { paginationItemsProps } from "~/types/paginationItems";
 
-export const usePaginationItems = <T>({
+export const useLoadMoreItems = <T>({
   items,
   initialCount = 6,
   step = 4,

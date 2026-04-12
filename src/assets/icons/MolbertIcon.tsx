@@ -1,5 +1,3 @@
-import React from "react";
-
 interface MolbertIconProps {
   className?: string;
   size?: number;

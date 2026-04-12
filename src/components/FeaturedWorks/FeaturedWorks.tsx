@@ -12,7 +12,7 @@ const FeaturedWorks = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="flex flex-col justify-center mx-[auto]">
+    <section className="flex flex-col justify-center mx-[auto] mb-12 md:mb-24 xl:mb-0">
       <Reveal direction="up" duration={0.8}>
         <h1 className="extra-big leading-none">
           Featured <span className="text-blue">Works</span>
@@ -22,7 +22,7 @@ const FeaturedWorks = () => {
         direction="up"
         delay={0.2}
         duration={0.8}
-        className="flex items-center justify-between"
+        className="flex flex-col items-start lg:flex-row lg:items-center justify-between"
       >
         <div className="flex flex-col gap-[8px] mb-[48px]">
           <h3 className="text text-gray leading-relaxed mt-4">
@@ -33,7 +33,10 @@ const FeaturedWorks = () => {
             clients.
           </p>
         </div>
-        <Link to="/portfolio" className="glass-btn group arrow-right">
+        <Link
+          to="/portfolio"
+          className="mb-8 lg:mb-0 glass-btn group arrow-right"
+        >
           View Full Gallery
           <ArrowRight className="arrow" size={18} />
         </Link>
@@ -49,6 +52,14 @@ const FeaturedWorks = () => {
           interval: 5000,
           pauseOnHover: true,
           resetProgress: false,
+          breakpoints: {
+            1024: {
+              perPage: 1,
+              gap: "10px",
+              focus: "center",
+              arrows: false,
+            },
+          },
         }}
         onMove={(splide: SplideInstance) => setActiveIndex(splide.index)}
       >
@@ -65,9 +76,9 @@ const FeaturedWorks = () => {
                 src={img}
                 loading="lazy"
                 alt={`Image ${i + 1}`}
-                className="w-96 h-[496px] object-cover rounded-xl"
+                className=" w-full xl:w-96 h-[500px] md:h-[700px] lg:h-[900px] xl:h-[496px] object-cover rounded-xl"
               />
-              <div className="card-overlay" />
+              <div className="card-overlay h-[500px] md:h-[700px] lg:h-[900px] xl:h-[496px]" />
             </SplideSlide>
           );
         })}

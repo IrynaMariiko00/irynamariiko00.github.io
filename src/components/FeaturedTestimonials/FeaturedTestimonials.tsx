@@ -29,7 +29,7 @@ const FeaturedTestimonials = () => {
           </Reveal>
         </div>
 
-        <div className="relative h-[500px] w-full md:w-[500px] flex-shrink-0">
+        <div className="relative h-[500px] w-full md:w-[300px] lg:w-[500px] flex-shrink-0">
           <div className="flex flex-col gap-[15px] h-full overflow-y-auto no-scrollbar">
             {featuredTestimonials.map((item, index) => (
               <Reveal

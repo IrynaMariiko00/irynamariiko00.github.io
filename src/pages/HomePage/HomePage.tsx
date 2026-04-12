@@ -28,7 +28,7 @@ const HomePage = () => {
   return (
     <>
       <Hero />
-      <div className="max-w-[80%] mx-auto py-[92px] flex flex-col gap-[196px]">
+      <div className="max-w-[90%] xl:max-w-[80%] mx-auto py-[72px] xl:py-[92px] flex flex-col gap-[124px] xl:gap-[196px]">
         <Benefits />
         <FeaturedWorks />
         <FeaturedTestimonials />

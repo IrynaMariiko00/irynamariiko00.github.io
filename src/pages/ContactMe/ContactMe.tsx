@@ -43,7 +43,7 @@ const ContactMe = () => {
       <LiquidBackground />
 
       <div className="max-w-5xl mx-auto relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-start mb-16 gap-8">
+        <div className="flex flex-col md:flex-row justify-between items-start mb-8 xl:mb-16 gap-8">
           <Reveal direction="right" duration={0.8} className="max-w-xl">
             <h2 className="extra-big leading-none">
               Start Your <br />
@@ -57,7 +57,7 @@ const ContactMe = () => {
         </div>
 
         <Reveal direction="up" delay={0.4}>
-          <form className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 glass-card bg-[var(--color-glass-bg)] p-8 md:p-12">
+          <form className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 glass-card bg-[var(--color-glass-bg)] p-6 xl:p-8 md:p-12">
             {formDataPage.map((field) => {
               const { input } = field;
 
@@ -84,17 +84,17 @@ const ContactMe = () => {
                 </div>
               );
             })}
-            <div className="md:col-span-2 flex gap-20 justify-center mt-4">
+            <div className="md:col-span-2 flex gap-8 xl:gap-20 justify-center mt-4">
               <button
                 type="reset"
-                className="w-[20%] glass-btn py-3 justify-center uppercase rounded-2xl"
+                className="w-[45%] xl:w-[20%] glass-btn py-3 justify-center uppercase rounded-2xl"
                 onClick={handleScrollTop}
               >
                 Reset
               </button>
               <button
                 type="submit"
-                className="w-[20%] px-1 py-3 blue-btn rounded-2xl"
+                className="w-[45%] xl:w-[20%] px-1 py-1 xl:py-3 blue-btn rounded-2xl"
                 onClick={handleScrollTop}
               >
                 Send Request

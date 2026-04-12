@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { quickLinks } from "~/constants/links";
+import BurgerMenuIcon from "~/assets/icons/BurgerMenuIcon";
+import Menu from "../Menu/Menu";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,15 +18,38 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  useEffect(() => {
+    const preventDefault = (e: Event) => {
+      e.preventDefault();
+    };
+
+    if (isMenuOpen) {
+      window.addEventListener("wheel", preventDefault, { passive: false });
+      window.addEventListener("touchmove", preventDefault, { passive: false });
+    } else {
+      window.removeEventListener("wheel", preventDefault);
+      window.removeEventListener("touchmove", preventDefault);
+    }
+
+    return () => {
+      window.removeEventListener("wheel", preventDefault);
+      window.removeEventListener("touchmove", preventDefault);
+    };
+  }, [isMenuOpen]);
+
   return (
     <header
       className={`h-20 w-full fixed z-20 ${
         isScrolled
-          ? "bg-gray border-b border-[var(--color-gray-light)]"
+          ? "bg-[var(--color-bg)] border-b border-[var(--color-gray-light)]"
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-screen-xl mx-auto flex items-center h-full justify-between">
+      <div className="max-w-screen-xl mx-auto flex items-center h-full justify-between px-8 xl:px-0">
         <Link
           to="/"
           className="small-bold pr-[40px] drop-shadow-[1px_1px_10px_var(--color-blue-dark)]"
@@ -31,7 +57,7 @@ const Header = () => {
           PortraitsLviv
         </Link>
 
-        <nav>
+        <nav className="hidden xl:flex">
           <ul className="flex gap-[57px] small-bold">
             {quickLinks.map((item) => (
               <NavLink key={item.link} to={item.link} className="nav-link">
@@ -41,9 +67,19 @@ const Header = () => {
           </ul>
         </nav>
 
-        <Link to="/commision" className="glass-btn">
+        <Link to="/commision" className="glass-btn hidden xl:flex">
           Get Your Portrait
         </Link>
+
+        <div className="xl:hidden">
+          <button
+            className={`cursor-pointer transition-all duration-200 ease-in-out ${isMenuOpen ? "opacity-0" : "opacity-100"}`}
+            onClick={toggleMenu}
+          >
+            <BurgerMenuIcon />
+          </button>
+          <Menu isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
+        </div>
       </div>
     </header>
   );

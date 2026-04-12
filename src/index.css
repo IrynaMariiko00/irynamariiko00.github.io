@@ -8,6 +8,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer components {
   .smooth-scale {
     @apply transition-transform duration-500 ease-in-out;
@@ -17,7 +18,6 @@
     @apply group-hover:scale-105;
   }
 }
-
 
 body, html {
   overflow-x: hidden;
@@ -54,6 +54,9 @@ body, html {
   --color-gray-light: #393939;
   --color-gray-extra-light: #868686;
 
+  --color-mobile-menu-glass: rgba(14, 14, 16, 0.75); 
+
+
   --color-glass: rgba(59, 130, 246, 0.1);
   --color-glass-bg: rgba(255, 255, 255, 0.05);
   --color-border: rgba(255, 255, 255, 0.1);
@@ -73,7 +76,7 @@ body, html {
 
   --color-blue-shadow: 0_0_10px_rgba(59,130,246,0.5);
 
-  --color-gray: #0e0e10;
+  --color-bg: #0e0e10;
   --color-card-bg: rgba(24, 24, 27, 0.5);
   --color-text-shadow-dark: 0_0_20px_rgba(0,0,0,0.9);
 }

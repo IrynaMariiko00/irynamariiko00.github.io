@@ -4,7 +4,7 @@ export const useNavigateToPortrait = () => {
   const navigate = useNavigate();
 
   const navigateToPortrait = (portraitId: number) => {
-    navigate(`//portfolio/${portraitId}`);
+    navigate(`/portfolio/${portraitId}`);
   };
 
   return { navigateToPortrait };

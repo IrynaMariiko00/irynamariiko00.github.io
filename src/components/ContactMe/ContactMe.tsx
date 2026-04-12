@@ -7,7 +7,7 @@ const ContactMe = () => {
       id="contact"
       className="flex flex-col justify-center scroll-mt-[80px]"
     >
-      <div className="flex justify-between mx-auto w-[100%]">
+      <div className="flex flex-col gap-8 md:gap-0 md:flex-row md:justify-between mx-auto w-[100%]">
         <div className="flex flex-col">
           <h1 className="extra-big leading-none">
             Get in <span className="text-blue">Touch</span>
@@ -19,7 +19,10 @@ const ContactMe = () => {
           </h3>
         </div>
 
-        <Link to="/estimate" className="glass-btn h-[5%] self-center">
+        <Link
+          to="/estimate"
+          className="glass-btn h-[5%] self-start md:self-center"
+        >
           Get Estimate
         </Link>
       </div>

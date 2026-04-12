@@ -17,7 +17,7 @@ const ContactMeLink: React.FC<TextSectionProps> = ({
           </React.Fragment>
         ))}
       </h1>
-      <h3 className="text text-gray leading-relaxed mt-4 mb-[5%] max-w-[60%]">
+      <h3 className="text text-gray leading-relaxed mt-4 mb-[10%] lg:mb-[5%] max-w-[80%] xl:max-w-[60%]">
         {description}
       </h3>
       <Link to={`${link}`} smooth className="blue-btn w-fit">

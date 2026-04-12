@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Process = () => {
   return (
     <section className="flex flex-col justify-center min-w-[100%] mx-auto">
-      <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-24 md:gap-12">
         <div className="flex-1 max-w-lg">
           <h1 className="extra-big leading-none">
             From Sketch to <span className="text-blue">Portrait</span>
@@ -39,7 +39,7 @@ const Process = () => {
         <Reveal
           direction="left"
           delay={0.4}
-          className="relative w-full max-w-[300px] mr-[15%]"
+          className="relative w-full max-w-[300px] xl:mr-[15%]"
         >
           <div className="rounded-2xl overflow-hidden">
             <div className="w-full aspect-[9/16]">

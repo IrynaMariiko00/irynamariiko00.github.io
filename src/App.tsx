@@ -14,7 +14,7 @@ import FAQPage from "./pages/FAQPage/FAQPage";
 
 function App() {
   return (
-    <main className="bg-gray">
+    <main className="bg-[var(--color-bg)]">
       <Header />
       <ScrollToTop />
       <Routes>
