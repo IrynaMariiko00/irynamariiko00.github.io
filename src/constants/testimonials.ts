@@ -19,7 +19,7 @@ export const TESTIMONIALS: Testimonial[] = TESTIMONIALS_DATA.map(
       year: item.year,
       title: item.title,
       testimonialImage: `/images/featuredTestimonials/${id}.png`,
-      portraitImage: `/images/testimonials/portrait_${id}.png`,
+      portraitImage: `/images/testimonials/portrait_${id}.jpg`,
     };
   },
 );

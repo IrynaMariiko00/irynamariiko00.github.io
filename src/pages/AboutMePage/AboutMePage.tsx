@@ -1,5 +1,5 @@
 import { ABOUT_ME_CONTENT } from "~/constants/addText";
-import mePhoto from "~/assets/images/aboutMe/me.png";
+import mePhoto from "~/assets/images/aboutMe/me.jpg";
 import { Reveal } from "~/components/ui/Reveal";
 import LiquidBackground from "~/components/ui/LiquidBackground/LiquidBackground";
 import { Link } from "react-router-dom";

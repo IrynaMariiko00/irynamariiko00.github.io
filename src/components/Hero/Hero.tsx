@@ -7,7 +7,7 @@ const Hero = () => {
       <img
         className="h-full w-full object-cover rounded-b-[16px]"
         alt="hero-page"
-        src="./images/hero1.png"
+        src="./images/hero.png"
       />
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex justify-center items-center gap-[40px] flex-col w-full text-center px-4">
         <Reveal direction="up" delay={0.2}>
