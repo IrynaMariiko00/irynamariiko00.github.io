@@ -1,9 +1,13 @@
+"use client";
+
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Reveal } from "~/components/ui/Reveal";
-import { Link } from "react-router-dom";
 import { featuredTestimonials } from "~/constants/testimonials";
+import { useGetImgSrs } from "~/hooks/useGetImgSrc";
 
 const FeaturedTestimonials = () => {
+  const { getImgSrc } = useGetImgSrs();
   return (
     <section className="relative w-full overflow-hidden">
       <div className="container mx-auto flex flex-col md:flex-row justify-between gap-10 items-center">
@@ -22,7 +26,7 @@ const FeaturedTestimonials = () => {
           </Reveal>
 
           <Reveal direction="up" delay={0.4}>
-            <Link to="/testimonials" className="glass-btn w-fit arrow-right">
+            <Link href="/testimonials" className="glass-btn w-fit arrow-right">
               See All
               <ArrowRight className="arrow" size={18} />
             </Link>
@@ -40,7 +44,7 @@ const FeaturedTestimonials = () => {
               >
                 <div className="glass-card min-h-[255px] relative">
                   <img
-                    src={item}
+                    src={getImgSrc(item)}
                     loading="lazy"
                     alt={`Testimonial ${index + 1}`}
                     className="max-w-full max-h-full rounded-lg object-contain opacity-90 hover:opacity-100 transition-opacity"

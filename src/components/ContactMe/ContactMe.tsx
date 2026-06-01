@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import ContactForm from "../ContactForm/ContactForm";
 
 const ContactMe = () => {
@@ -20,7 +20,7 @@ const ContactMe = () => {
         </div>
 
         <Link
-          to="/estimate"
+          href="/commision"
           className="glass-btn h-[5%] self-start md:self-center"
         >
           Get Estimate

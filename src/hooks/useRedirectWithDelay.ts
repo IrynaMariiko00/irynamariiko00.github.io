@@ -1,13 +1,15 @@
-import { useNavigate } from "react-router-dom";
+"use client";
+
+import { useRouter } from "next/navigation";
 
 export const useRedirectWithDelay = (onClose: () => void) => {
-  const navigate = useNavigate();
+  const router = useRouter();
 
   const handleClick = (link: string) => {
     onClose();
 
     setTimeout(() => {
-      navigate(`${link}`);
+      router.push(link);
     }, 300);
   };
 

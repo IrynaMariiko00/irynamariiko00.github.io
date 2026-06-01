@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 export const PortfolioCTACard = () => {
   return (
@@ -11,7 +11,7 @@ export const PortfolioCTACard = () => {
         <p className="text-xs uppercase tracking-widest text text-gray mb-8">
           Let's create yours
         </p>
-        <Link to="/commision" className="glass-btn">
+        <Link href="/commision" className="glass-btn">
           Order a Portrait
         </Link>
       </div>

@@ -1,10 +1,11 @@
-import { useNavigate } from "react-router-dom";
+"use client";
 
+import { useRouter } from "next/navigation";
 export const useNavigateToPortrait = () => {
-  const navigate = useNavigate();
+  const router = useRouter();
 
-  const navigateToPortrait = (portraitId: number) => {
-    navigate(`/portfolio/${portraitId}`);
+  const navigateToPortrait = (portraitId: number | string) => {
+    router.push(`/portfolio/${portraitId}`);
   };
 
   return { navigateToPortrait };

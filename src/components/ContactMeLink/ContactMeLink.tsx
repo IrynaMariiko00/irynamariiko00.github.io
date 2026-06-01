@@ -1,6 +1,6 @@
 import React from "react";
 import type { TextSectionProps } from "~/types/addText";
-import { HashLink as Link } from "react-router-hash-link";
+import Link from "next/link";
 
 const ContactMeLink: React.FC<TextSectionProps> = ({
   title,
@@ -20,7 +20,8 @@ const ContactMeLink: React.FC<TextSectionProps> = ({
       <h3 className="text text-gray leading-relaxed mt-4 mb-[10%] lg:mb-[5%] max-w-[80%] xl:max-w-[60%]">
         {description}
       </h3>
-      <Link to={`${link}`} smooth className="blue-btn w-fit">
+
+      <Link href={link} className="blue-btn w-fit">
         {button}
       </Link>
     </section>

@@ -1,4 +1,6 @@
-import { HashLink as Link } from "react-router-hash-link";
+"use client";
+
+import Link from "next/link";
 import { Reveal } from "~/components/ui/Reveal";
 
 const Hero = () => {
@@ -7,7 +9,7 @@ const Hero = () => {
       <img
         className="h-full w-full object-cover rounded-b-[16px]"
         alt="hero-page"
-        src="./images/hero.png"
+        src="/images/hero.png"
       />
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex justify-center items-center gap-[40px] flex-col w-full text-center px-4">
         <Reveal direction="up" delay={0.2}>
@@ -26,8 +28,7 @@ const Hero = () => {
 
         <Reveal direction="up" delay={0.6}>
           <Link
-            smooth
-            to="#benefits"
+            href="#benefits"
             className="blue-btn px-[20px] py-[14px] text-[16px] xl:px-[27px] xl:py-[18px] text-mont xl:text-[22px]"
           >
             Get Started

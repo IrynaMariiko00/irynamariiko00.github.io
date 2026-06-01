@@ -33,7 +33,7 @@ const BlankCanvas = () => {
 
         <div className="flex flex-col items-center justify-center opacity-60 animate-pulse-slow">
           <MolbertIcon size={150} className="mb-6" />
-          <h3 className="text-xl font-light text-[var(primary-color)]">
+          <h3 className="text-xl font-light text-[var(--primary-color)]">
             Your question is a blank canvas...
           </h3>
           <p className="text-gray text mt-4 max-w-[70%]">

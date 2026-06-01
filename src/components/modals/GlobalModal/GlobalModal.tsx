@@ -1,3 +1,4 @@
+"use client";
 import { useModalStore } from "~/store/useModalsStore";
 import BaseModal from "../BaseModal/BaseModal";
 import ModalSections from "../ModalSections/ModalSections";

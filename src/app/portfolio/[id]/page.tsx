@@ -1,11 +1,15 @@
-import { useParams, useNavigate } from "react-router-dom";
+"use client";
+
+import { useParams, useRouter } from "next/navigation";
 import { Reveal } from "~/components/ui/Reveal";
 import { PORTFOLIO_ITEMS } from "~/constants/portraits";
 import { ArrowLeft } from "lucide-react";
 
-const PortraitPage = () => {
-  const { id } = useParams();
-  const navigate = useNavigate();
+export default function PortraitPage() {
+  const params = useParams();
+  const router = useRouter();
+
+  const id = params?.id;
 
   const portrait = PORTFOLIO_ITEMS.find((item) => item.id.toString() === id);
 
@@ -63,7 +67,7 @@ const PortraitPage = () => {
 
           <Reveal direction="left" delay={0}>
             <button
-              onClick={() => navigate(-1)}
+              onClick={() => router.back()}
               className="glass-btn arrow-left mt-6"
             >
               <ArrowLeft size={18} className="arrow" />
@@ -74,6 +78,4 @@ const PortraitPage = () => {
       </div>
     </section>
   );
-};
-
-export default PortraitPage;
+}

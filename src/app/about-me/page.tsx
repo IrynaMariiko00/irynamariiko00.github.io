@@ -1,10 +1,12 @@
+"use client";
+
 import { ABOUT_ME_CONTENT } from "~/constants/addText";
 import mePhoto from "~/assets/images/aboutMe/me.jpg";
 import { Reveal } from "~/components/ui/Reveal";
 import LiquidBackground from "~/components/ui/LiquidBackground/LiquidBackground";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
-const AboutMePage = () => {
+export default function AboutMePage() {
   const { TITLE, TITLE_ACCENT, GREETING, NAME, PARAGRAPHS, BUTTON_TEXT } =
     ABOUT_ME_CONTENT;
 
@@ -24,7 +26,7 @@ const AboutMePage = () => {
             <div className="relative group">
               <div className="glass-border-card overflow-hidden rounded-3xl border border-[var(--color-border)] shadow-2xl">
                 <img
-                  src={mePhoto}
+                  src={mePhoto.src}
                   alt="Iryna"
                   className="zoom-image transition-transform duration-1000 group-hover:scale-105 w-full object-cover"
                 />
@@ -69,7 +71,7 @@ const AboutMePage = () => {
               className="mt-8 xl:mt-12 flex justify-center xl:justify-start"
             >
               <Link
-                to="/#contact"
+                href="/#contact"
                 className="blue-btn inline-block text-center px-12 py-3 xl:py-4"
               >
                 {BUTTON_TEXT}
@@ -80,6 +82,4 @@ const AboutMePage = () => {
       </div>
     </main>
   );
-};
-
-export default AboutMePage;
+}

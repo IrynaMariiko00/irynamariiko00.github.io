@@ -1,5 +1,8 @@
+"use client";
+
 import { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { quickLinks } from "~/constants/links";
 import BurgerMenuIcon from "~/assets/icons/BurgerMenuIcon";
 import Menu from "../Menu/Menu";
@@ -7,6 +10,7 @@ import Menu from "../Menu/Menu";
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname(); // Отримуємо поточний шлях
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,7 +18,6 @@ const Header = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -24,7 +27,7 @@ const Header = () => {
 
   useEffect(() => {
     const preventDefault = (e: Event) => {
-      e.preventDefault();
+      if (isMenuOpen) e.preventDefault();
     };
 
     if (isMenuOpen) {
@@ -51,7 +54,7 @@ const Header = () => {
     >
       <div className="max-w-screen-xl mx-auto flex items-center h-full justify-between px-8 xl:px-0">
         <Link
-          to="/"
+          href="/"
           className="small-bold pr-[40px] drop-shadow-[1px_1px_10px_var(--color-blue-dark)]"
         >
           PortraitsLviv
@@ -60,14 +63,14 @@ const Header = () => {
         <nav className="hidden xl:flex">
           <ul className="flex gap-[57px] small-bold">
             {quickLinks.map((item) => (
-              <NavLink key={item.link} to={item.link} className="nav-link">
+              <Link key={item.link} href={item.link} className="nav-link">
                 {item.title}
-              </NavLink>
+              </Link>
             ))}
           </ul>
         </nav>
 
-        <Link to="/commision" className="glass-btn hidden xl:flex">
+        <Link href="/commision" className="glass-btn hidden xl:flex">
           Get Your Portrait
         </Link>
 

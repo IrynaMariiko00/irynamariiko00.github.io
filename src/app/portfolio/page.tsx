@@ -1,3 +1,5 @@
+"use client";
+
 import LiquidBackground from "~/components/ui/LiquidBackground/LiquidBackground";
 import { Reveal } from "~/components/ui/Reveal";
 import { useLoadMoreItems } from "~/hooks/useLoadMoreItems";
@@ -8,8 +10,7 @@ import { PortfolioCTACard } from "~/components/PortfolioCTACard";
 import ContactMeLink from "~/components/ContactMeLink/ContactMeLink";
 import { contactMePortfolioPage } from "~/constants/addText";
 
-const PortfolioPage = () => {
-  useScrollTop();
+export default function PortfolioPage() {
   const { visibleItems, showMoreItems, hasMore } = useLoadMoreItems({
     items: PORTFOLIO_ITEMS,
     initialCount: 6,
@@ -70,6 +71,4 @@ const PortfolioPage = () => {
       </div>
     </section>
   );
-};
-
-export default PortfolioPage;
+}

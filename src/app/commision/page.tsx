@@ -1,15 +1,18 @@
+"use client";
+
+import { useState, type ComponentType } from "react";
 import LiquidBackground from "~/components/ui/LiquidBackground/LiquidBackground";
 import { Reveal } from "~/components/ui/Reveal";
-import SizeSelector from "./fields/SizeSelector";
 import CustomDatePicker from "~/components/ui/DatePicker/DatePicker";
-import RadioToggle from "./fields/RadioToggle";
 import FileUploadField from "~/components/ui/FileUploadField/FileUploadField";
 import InputField from "~/components/ui/InputField/InputField";
-import type { FieldProps } from "~/types/formField";
-import { useState, type ComponentType } from "react";
 import { formDataPage } from "~/constants/formData";
-import TextArea from "./fields/TextArea";
 import { useScrollTop } from "~/hooks/useScrollTop";
+import type { FieldProps } from "~/types/formField";
+
+import SizeSelector from "~/components/ContactMeFields/SizeSelector";
+import RadioToggle from "~/components/ContactMeFields/RadioToggle";
+import TextArea from "~/components/ContactMeFields/TextArea";
 
 const DatePickerField = ({ label }: FieldProps) => (
   <CustomDatePicker
@@ -18,22 +21,22 @@ const DatePickerField = ({ label }: FieldProps) => (
   />
 );
 
-const ContactMe = () => {
+export default function ContactMePage() {
   const [hasFrame, setHasFrame] = useState(false);
+  const handleScrollTop = useScrollTop();
+
   const FIELD_MAP: Record<string, ComponentType<FieldProps>> = {
     size: SizeSelector,
     deadline: DatePickerField,
     needFrame: RadioToggle,
     needMat: RadioToggle,
     message: TextArea,
-
     text: InputField,
     email: InputField,
     file: FileUploadField,
   };
 
   const FULL_WIDTH_IDS = ["needFrame", "needMat", "size", "photos", "message"];
-  const handleScrollTop = useScrollTop();
 
   return (
     <main
@@ -66,14 +69,15 @@ const ContactMe = () => {
               }
 
               const isFullWidth = FULL_WIDTH_IDS.includes(input.id);
-
               const Component =
                 FIELD_MAP[input.id] || FIELD_MAP[input.type] || InputField;
 
               return (
-                <div className={isFullWidth ? "md:col-span-2" : ""}>
+                <div
+                  key={input.id}
+                  className={isFullWidth ? "md:col-span-2" : ""}
+                >
                   <Component
-                    key={input.id}
                     {...field}
                     onChange={(val: string) => {
                       if (input.id === "needFrame") {
@@ -105,6 +109,4 @@ const ContactMe = () => {
       </div>
     </main>
   );
-};
-
-export default ContactMe;
+}

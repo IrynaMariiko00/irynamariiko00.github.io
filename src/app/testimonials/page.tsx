@@ -1,18 +1,20 @@
+"use client";
+
 import ContactMeLink from "~/components/ContactMeLink/ContactMeLink";
 import LiquidBackground from "~/components/ui/LiquidBackground/LiquidBackground";
 import { Reveal } from "~/components/ui/Reveal";
 import { contactMeTestimonialsPage } from "~/constants/addText";
 import { TESTIMONIALS } from "~/constants/testimonials";
-import { useScrollTop } from "~/hooks/useScrollTop";
+import { useGetImgSrs } from "~/hooks/useGetImgSrc";
 
-const TestimonialsPage = () => {
-  useScrollTop();
+export default function TestimonialsPage() {
+  const { getImgSrc } = useGetImgSrs();
 
   return (
     <section className="relative min-h-screen px-6 py-36 scroll-smooth">
       <LiquidBackground />
 
-      <div className="max-w-6xl mx-auto flex flex-col gap-10 mb-24">
+      <div className="max-w-6xl mx-auto flex flex-col gap-10 mb-24 relative z-10">
         <Reveal direction="up">
           <h1 className="extra-big">
             What <br />
@@ -30,13 +32,13 @@ const TestimonialsPage = () => {
         </Reveal>
       </div>
 
-      <div className="max-w-5xl mx-auto flex flex-col gap-12">
+      <div className="max-w-5xl mx-auto flex flex-col gap-12 relative z-10">
         {TESTIMONIALS.map((item, index) => (
           <Reveal key={item.id} direction="up" delay={index * 0.1}>
             <div className="glass-card group flex flex-col md:flex-row items-stretch overflow-hidden rounded-3xl min-h-[400px] relative">
               <div className="w-full md:w-[40%] overflow-hidden rounded-2xl relative">
                 <img
-                  src={item.portraitImage}
+                  src={getImgSrc(item.portraitImage)}
                   alt="Portrait"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
@@ -55,7 +57,7 @@ const TestimonialsPage = () => {
 
                 <div className="flex items-center relative z-10">
                   <img
-                    src={item.testimonialImage}
+                    src={getImgSrc(item.testimonialImage)}
                     alt="Testimonial text"
                     className="max-w-full h-auto brightness-110 contrast-[1.02] drop-shadow-sm opacity-90 group-hover:opacity-100 transition-opacity"
                   />
@@ -66,7 +68,7 @@ const TestimonialsPage = () => {
         ))}
       </div>
 
-      <div className="mt-36">
+      <div className="mt-36 relative z-10">
         <ContactMeLink
           title={contactMeTestimonialsPage.title}
           description={contactMeTestimonialsPage.description}
@@ -76,6 +78,4 @@ const TestimonialsPage = () => {
       </div>
     </section>
   );
-};
-
-export default TestimonialsPage;
+}

@@ -1,7 +1,9 @@
+"use client";
+
 import CheckIcon from "~/assets/icons/CheckIcon";
 import { smallBenefits } from "~/constants/addText";
 import { Reveal } from "../ui/Reveal";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const Process = () => {
   return (
@@ -20,17 +22,22 @@ const Process = () => {
           <ul className="space-y-5 my-10">
             {smallBenefits.map((item, index) => (
               <Reveal key={index} direction="right" delay={index * 0.15}>
-                <div className="glass-icon">
-                  <CheckIcon className="w-[20px] h-[20px]" />
+                <div className="flex items-center">
+                  {" "}
+                  <div className="glass-icon">
+                    <CheckIcon className="w-[20px] h-[20px]" />
+                  </div>
+                  <span className="inline-block pl-4 text">{item}</span>
                 </div>
-
-                <span className="inline-block pl-4 text">{item}</span>
               </Reveal>
             ))}
           </ul>
 
           <Reveal direction="up" delay={0.6}>
-            <Link to="/commision" className="blue-btn h-[auto] w-[200px]">
+            <Link
+              href="/commision"
+              className="blue-btn h-[auto] w-[200px] inline-block text-center"
+            >
               ORDER YOURS
             </Link>
           </Reveal>

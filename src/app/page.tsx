@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect } from "react";
 import Hero from "~/components/Hero/Hero";
 import Benefits from "~/components/Benefits/Benefits";
 import FeaturedWorks from "~/components/FeaturedWorks/FeaturedWorks";
@@ -8,22 +11,20 @@ import { contactMeHomePage, priceEstimatorHomePage } from "~/constants/addText";
 import ContactMeLink from "~/components/ContactMeLink/ContactMeLink";
 import ContactMe from "~/components/ContactMe/ContactMe";
 import Comparison from "~/components/Comparison/Comparison";
-import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
 
-const HomePage = () => {
-  const { hash } = useLocation();
-
+export default function HomePage() {
   useEffect(() => {
+    const hash = window.location.hash;
     if (hash) {
       setTimeout(() => {
-        const element = document.getElementById(hash.replace("#", ""));
+        const id = hash.replace("#", "");
+        const element = document.getElementById(id);
         if (element) {
           element.scrollIntoView({ behavior: "smooth" });
         }
       }, 100);
     }
-  }, [hash]);
+  }, []);
 
   return (
     <>
@@ -42,7 +43,7 @@ const HomePage = () => {
         <ContactMeLink
           title={priceEstimatorHomePage.title}
           description={priceEstimatorHomePage.description}
-          link="/estimate"
+          link="/commision" // Перевірте, щоб шлях збігався з назвою папки в src/app
           button="Get estimate"
         />
         <Process />
@@ -51,6 +52,4 @@ const HomePage = () => {
       </div>
     </>
   );
-};
-
-export default HomePage;
+}

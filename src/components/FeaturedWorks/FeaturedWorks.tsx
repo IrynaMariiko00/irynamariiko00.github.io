@@ -1,12 +1,20 @@
+"use client";
+
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import type { Splide as SplideInstance } from "@splidejs/splide";
-import "~/index.css";
 import "@splidejs/react-splide/css";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { Reveal } from "../ui/Reveal";
 import { ArrowRight } from "lucide-react";
 import { featuredImages } from "~/constants/portraitsImages";
+
+interface StaticImageData {
+  src: string;
+  height: number;
+  width: number;
+  blurDataURL?: string;
+}
 
 const FeaturedWorks = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -34,13 +42,14 @@ const FeaturedWorks = () => {
           </p>
         </div>
         <Link
-          to="/portfolio"
+          href="/portfolio"
           className="mb-8 lg:mb-0 glass-btn group arrow-right"
         >
           View Full Gallery
           <ArrowRight className="arrow" size={18} />
         </Link>
       </Reveal>
+
       <Splide
         className="relative overflow-visible max-w-[1100px] mx-auto"
         options={{
@@ -65,6 +74,8 @@ const FeaturedWorks = () => {
       >
         {featuredImages.map((img, i) => {
           const isActive = i === activeIndex;
+          const currentImgSrc =
+            typeof img === "string" ? img : (img as StaticImageData).src;
           return (
             <SplideSlide
               key={i}
@@ -73,7 +84,7 @@ const FeaturedWorks = () => {
               }`}
             >
               <img
-                src={img}
+                src={currentImgSrc}
                 loading="lazy"
                 alt={`Image ${i + 1}`}
                 className=" w-full xl:w-96 h-[500px] md:h-[700px] lg:h-[900px] xl:h-[496px] object-cover rounded-xl"

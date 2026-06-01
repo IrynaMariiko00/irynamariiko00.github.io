@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { footerSections } from "~/constants/links";
 
 const Footer = () => {
@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="max-w-[90%] xl:max-w-screen-xl mx-auto">
         <div className="flex justify-center md:justify-between">
           <Link
-            to="/"
+            href="/"
             className="hidden md:block big-bold self-center drop-shadow-[1px_1px_10px_var(--color-blue-dark)]"
           >
             PortraitsLviv
@@ -27,9 +27,16 @@ const Footer = () => {
                     >
                       {IconComponent && <IconComponent />}
                       <Link
-                        to={item.link}
+                        href={item.link}
                         className="text-[14px]"
-                        target="_blank"
+                        target={
+                          item.link.startsWith("http") ? "_blank" : undefined
+                        }
+                        rel={
+                          item.link.startsWith("http")
+                            ? "noopener noreferrer"
+                            : undefined
+                        }
                       >
                         {item.title}
                       </Link>

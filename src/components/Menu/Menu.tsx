@@ -1,4 +1,7 @@
-import { NavLink } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import CloseIcon from "~/assets/icons/CloseIcon";
 import { quickLinks } from "~/constants/links";
 
@@ -8,6 +11,8 @@ interface MenuProps {
 }
 
 const Menu: React.FC<MenuProps> = ({ isMenuOpen, toggleMenu }) => {
+  const pathname = usePathname();
+
   return (
     <div
       className={`fixed top-0 right-0 h-full w-full z-30 transform transition-transform duration-500 ease-in-out 
@@ -25,14 +30,14 @@ const Menu: React.FC<MenuProps> = ({ isMenuOpen, toggleMenu }) => {
       <nav>
         <ul className="flex flex-col items-center gap-[45px] small-bold">
           {quickLinks.map((item) => (
-            <NavLink
+            <Link
               key={item.link}
-              to={item.link}
-              className="nav-link"
+              href={item.link}
+              className={`nav-link ${pathname === item.link ? "text-blue" : ""}`}
               onClick={toggleMenu}
             >
               {item.title}
-            </NavLink>
+            </Link>
           ))}
         </ul>
       </nav>

@@ -1,3 +1,5 @@
+"use client";
+
 import { Reveal } from "~/components/ui/Reveal";
 import LiquidBackground from "~/components/ui/LiquidBackground/LiquidBackground";
 import { questions } from "~/constants/addText";
@@ -8,7 +10,7 @@ import BlankCanvas from "~/components/ui/BlankCanvas/BlankCanvas";
 import { usePagination } from "~/hooks/usePagination";
 import ReactPaginate from "react-paginate";
 
-const FAQPage = () => {
+export default function FAQPage() {
   const { filteredItems, ...searchProps } = useSearchAndFilter(
     questions,
     ["question", "answer"],
@@ -77,6 +79,4 @@ const FAQPage = () => {
       )}
     </section>
   );
-};
-
-export default FAQPage;
+}
