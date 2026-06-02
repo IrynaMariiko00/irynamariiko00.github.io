@@ -12,7 +12,9 @@ export default function AboutMePage() {
 
   return (
     <main className="relative py-[100px] xl:py-[130px] overflow-hidden xl:min-h-screen">
-      <LiquidBackground />
+      <div className="hidden md:block">
+        <LiquidBackground />
+      </div>
 
       <div className="max-w-6xl mx-auto px-4 lg:px-6 relative z-10">
         <Reveal direction="down" duration={0.8} className="mb-4 xl:mb-20">
