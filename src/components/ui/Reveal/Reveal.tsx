@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 interface RevealProps {
   children: React.ReactNode;
@@ -16,7 +16,21 @@ export const Reveal = ({
   duration = 0.6,
   className = "",
 }: RevealProps) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+  }, []);
+
   const getInitialStyles = () => {
+    if (isMobile) {
+      return { opacity: 1, y: 0, x: 0 };
+    }
     switch (direction) {
       case "up":
         return { y: 30, opacity: 0 };
@@ -36,9 +50,13 @@ export const Reveal = ({
   return (
     <motion.div
       initial={getInitialStyles()}
-      whileInView={{ opacity: 1, y: 0, x: 0 }}
+      whileInView={isMobile ? {} : { opacity: 1, y: 0, x: 0 }}
       viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration, delay, ease: "easeOut" }}
+      transition={{
+        duration: isMobile ? 0 : duration,
+        delay: isMobile ? 0 : delay,
+        ease: "easeOut",
+      }}
       className={className}
     >
       {children}

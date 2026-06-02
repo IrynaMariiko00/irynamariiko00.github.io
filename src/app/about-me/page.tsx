@@ -67,7 +67,6 @@ export default function AboutMePage() {
 
             <Reveal
               direction="up"
-              delay={1}
               className="mt-8 xl:mt-12 flex justify-center xl:justify-start"
             >
               <Link

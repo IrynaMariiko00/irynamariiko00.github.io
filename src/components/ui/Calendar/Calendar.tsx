@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import CalendarIcon from "~/assets/icons/CalendarIcon";
 import { format } from "date-fns";
@@ -22,7 +24,7 @@ const Calendar = () => {
         >
           {selected ? format(selected, "PPP") : "Select a date..."}
         </span>
-        <CalendarIcon />
+        <CalendarIcon isOpen={isOpen} />
       </div>
 
       {isOpen && (
