@@ -8,9 +8,7 @@ import PricingCard from "~/components/PricingCard/PricingCard";
 export default function PricePage() {
   return (
     <section className="relative min-h-screen py-24 xl:py-36 px-6 scroll-smooth overflow-hidden">
-      <div className="hidden md:block">
-        <LiquidBackground />
-      </div>
+      <LiquidBackground />
 
       <div className="max-w-6xl mx-auto relative z-10">
         <Reveal direction="up">

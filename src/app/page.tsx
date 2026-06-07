@@ -43,7 +43,7 @@ export default function HomePage() {
         <ContactMeLink
           title={priceEstimatorHomePage.title}
           description={priceEstimatorHomePage.description}
-          link="/commision" // Перевірте, щоб шлях збігався з назвою папки в src/app
+          link="/commision"
           button="Get estimate"
         />
         <Process />

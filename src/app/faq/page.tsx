@@ -24,9 +24,8 @@ export default function FAQPage() {
 
   return (
     <section className="relative min-h-screen py-24 xl:py-36 px-6 scroll-smooth overflow-hidden">
-      <div className="hidden md:block">
-        <LiquidBackground />
-      </div>
+      <LiquidBackground />
+
       <div className="mx-auto relative z-10 max-w-6xl">
         <div className="mb-16">
           <Reveal direction="up">

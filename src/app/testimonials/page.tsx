@@ -12,9 +12,7 @@ export default function TestimonialsPage() {
 
   return (
     <section className="relative min-h-screen px-6 py-36 scroll-smooth">
-      <div className="hidden md:block">
-        <LiquidBackground />
-      </div>
+      <LiquidBackground />
 
       <div className="max-w-6xl mx-auto flex flex-col gap-10 mb-24 relative z-10">
         <Reveal direction="up">

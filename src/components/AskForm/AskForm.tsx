@@ -21,7 +21,7 @@ const AskForm = () => {
           required
           name="contact"
           type="text"
-          placeholder="Your Instagram, Telegram or WhatsApp..."
+          placeholder="Your Email/Whatsapp/Instagram..."
           className="w-full glass-card px-5 py-4 outline-none rounded-xl text-[var(--color-primary)]"
         />
         <div className="absolute right-4 top-1/2 -translate-y-1/2 text-[var(--color-border-dark)]">

@@ -94,6 +94,18 @@
     transform: translateY(1px);
     box-shadow: 0 0 10px var(--color-blue-hover-dark);
   }
+
+  &:disabled {
+    cursor: not-allowed;
+    filter: grayscale(0.2) opacity(0.5);
+    transform: none;
+    box-shadow: none;
+    border-color: var(--color-border);
+
+    &::before {
+      display: none;
+    }
+  }
 }
 
 .glass-btn {

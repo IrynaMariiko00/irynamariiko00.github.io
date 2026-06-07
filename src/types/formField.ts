@@ -17,6 +17,7 @@ export type FormField = {
     required: boolean;
     multiple?: boolean;
     accept?: string;
+    name: string;
     options?: Option[];
   };
 };

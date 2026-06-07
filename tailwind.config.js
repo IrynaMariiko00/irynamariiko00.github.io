@@ -1,8 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./src/app/**/*.{js,ts,jsx,tsx}",
-    "./src/components/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{js,ts,jsx,tsx}", // ОЦЕЙ РЯДОК — він сканує ВСІ файли в src
+    "./app/**/*.{js,ts,jsx,tsx}", // Для Next.js App Router (якщо поза src)
+    "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {

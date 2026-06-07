@@ -2,18 +2,24 @@ import type { FormField } from "~/types/formField";
 import AttachFileIcon from "~/assets/icons/AttachFileIcon";
 import AttachImageIcon from "~/assets/icons/AttachImageIcon";
 
+export const FILE_LIMITS = {
+  MAX_SIZE_MB: 10,
+  MAX_SIZE_BYTES: 10 * 1024 * 1024,
+  ERROR_MESSAGE: "Total size exceeds 10MB limit. Please remove some files.",
+};
+
 export const formData: FormField[] = [
   {
     label: { htmlFor: "name", text: "Name:" },
-    input: { id: "name", type: "text", required: true },
+    input: { id: "name", type: "text", required: true, name: "userName" },
   },
   {
     label: { htmlFor: "email", text: "Email:" },
-    input: { id: "email", type: "email", required: true },
+    input: { id: "email", type: "email", required: true, name: "userEmail" },
   },
   {
     label: { htmlFor: "tel", text: "Phone (optional):" },
-    input: { id: "tel", type: "tel", required: false },
+    input: { id: "tel", type: "tel", required: false, name: "userTel" },
   },
 ];
 
@@ -24,6 +30,7 @@ export const formDataPage: FormField[] = [
       id: "name",
       type: "text",
       placeholder: "John Doe",
+      name: "fullName",
       required: true,
     },
   },
@@ -33,6 +40,7 @@ export const formDataPage: FormField[] = [
       id: "email",
       type: "email",
       placeholder: "example@mail.com",
+      name: "userEmail",
       required: true,
     },
   },
@@ -42,6 +50,7 @@ export const formDataPage: FormField[] = [
       id: "destination",
       type: "text",
       placeholder: "Country, City",
+      name: "userDestination",
       required: true,
     },
   },
@@ -51,6 +60,7 @@ export const formDataPage: FormField[] = [
       id: "deadline",
       type: "text",
       placeholder: "dd/mm/yyyy",
+      name: "userDeadline",
       required: true,
     },
   },
@@ -63,6 +73,7 @@ export const formDataPage: FormField[] = [
       id: "alternative-contact",
       type: "text",
       placeholder: "Instagram, Telegram (specify)",
+      name: "userAlternativeContact",
       required: false,
     },
   },
@@ -72,6 +83,7 @@ export const formDataPage: FormField[] = [
       id: "size",
       type: "radio",
       required: true,
+      name: "portraitSize",
       options: [
         {
           id: "small",
@@ -113,6 +125,7 @@ export const formDataPage: FormField[] = [
       id: "needFrame",
       type: "radio",
       required: true,
+      name: "needFrame",
       options: [
         { id: "frame-yes", label: "Yes" },
         { id: "frame-no", label: "No" },
@@ -125,6 +138,7 @@ export const formDataPage: FormField[] = [
       id: "needMat",
       type: "radio",
       required: true,
+      name: "needMat",
       options: [
         { id: "mat-yes", label: "Yes" },
         { id: "mat-no", label: "No" },
@@ -138,6 +152,7 @@ export const formDataPage: FormField[] = [
       type: "file",
       required: true,
       multiple: true,
+      name: "photos",
       accept: "image/png, image/jpeg",
     },
   },
@@ -146,6 +161,7 @@ export const formDataPage: FormField[] = [
     input: {
       id: "message",
       type: "text",
+      name: "userMessage",
       placeholder: "Tell me about your idea...",
       required: false,
     },
@@ -154,13 +170,15 @@ export const formDataPage: FormField[] = [
 
 export const attachmentOptions = [
   {
-    id: 1,
+    id: "file",
     icon: AttachFileIcon,
     label: "Attach File",
+    accept: "*",
   },
   {
-    id: 2,
+    id: "image",
     icon: AttachImageIcon,
     label: "Attach Image",
+    accept: "image/*",
   },
 ];

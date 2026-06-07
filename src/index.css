@@ -79,6 +79,12 @@ body, html {
   --color-bg: #0e0e10;
   --color-card-bg: rgba(24, 24, 27, 0.5);
   --color-text-shadow-dark: 0_0_20px_rgba(0,0,0,0.9);
+
+  --color-bg-toast-success: #26a7243c;
+  --color-border-toast-success: #229120;
+
+  --color-bg-toast-failed: #9f18184f;
+  --color-border-toast-failed: #ae2222;
 }
 
 .light {
