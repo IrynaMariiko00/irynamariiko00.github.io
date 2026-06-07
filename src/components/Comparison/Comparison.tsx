@@ -37,7 +37,10 @@ const Comparison = () => {
                 </span>
               </div>
               {/* @ts-expect-error: Web component definition is missing in JSX types */}
-              <img-comparison-slider className="w-full outline-none">
+              <img-comparison-slider
+                className="w-full outline-none"
+                suppressHydrationWarning={true}
+              >
                 <img
                   slot="first"
                   src="/images/comparison/img_1-before.jpg"
