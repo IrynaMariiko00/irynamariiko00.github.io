@@ -1,3 +1,4 @@
+"use client";
 import { benefits } from "~/constants/addText";
 import { Reveal } from "~/components/ui/Reveal";
 

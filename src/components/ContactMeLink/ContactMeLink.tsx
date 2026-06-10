@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import type { TextSectionProps } from "~/types/addText";
 import Link from "next/link";

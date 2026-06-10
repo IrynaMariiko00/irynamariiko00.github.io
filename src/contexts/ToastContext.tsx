@@ -48,7 +48,10 @@ export const ToastProvider = ({ children }: { children: ReactNode }) => {
               exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}
               layout
               className={`
-                pointer-events-auto flex items-center gap-3 pl-6 px-2 rounded-2xl shadow-2xl border
+                pointer-events-auto flex items-center gap-3 pl-6 px-2 
+                rounded-2xl shadow-2xl border
+                py-6   
+                md:py-4
                 ${
                   toast.status === "success"
                     ? "bg-[var(--color-bg-toast-success)] border-[var(--color-border-toast-success)] text-[var(--color-border-toast-success)] backdrop-blur-sm"

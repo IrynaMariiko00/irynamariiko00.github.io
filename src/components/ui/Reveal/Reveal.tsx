@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 
 interface RevealProps {
   children: React.ReactNode;
@@ -9,6 +9,26 @@ interface RevealProps {
   className?: string;
 }
 
+const MOBILE_BREAKPOINT = 768;
+const visible = { opacity: 1, y: 0, x: 0 };
+
+const getHiddenStyles = (direction: RevealProps["direction"]) => {
+  switch (direction) {
+    case "up":
+      return { y: 30, opacity: 0 };
+    case "down":
+      return { y: -30, opacity: 0 };
+    case "left":
+      return { x: 30, opacity: 0 };
+    case "right":
+      return { x: -30, opacity: 0 };
+    case "none":
+      return { opacity: 0 };
+    default:
+      return { y: 30, opacity: 0 };
+  }
+};
+
 export const Reveal = ({
   children,
   direction = "up",
@@ -16,45 +36,29 @@ export const Reveal = ({
   duration = 0.6,
   className = "",
 }: RevealProps) => {
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState<boolean | null>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
+      setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
     };
 
     checkMobile();
     window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  const getInitialStyles = () => {
-    if (isMobile) {
-      return { opacity: 1, y: 0, x: 0 };
-    }
-    switch (direction) {
-      case "up":
-        return { y: 30, opacity: 0 };
-      case "down":
-        return { y: -30, opacity: 0 };
-      case "left":
-        return { x: 30, opacity: 0 };
-      case "right":
-        return { x: -30, opacity: 0 };
-      case "none":
-        return { opacity: 0 };
-      default:
-        return { y: 30, opacity: 0 };
-    }
-  };
+  const shouldAnimate = isMobile === false;
 
   return (
     <motion.div
-      initial={getInitialStyles()}
-      whileInView={isMobile ? {} : { opacity: 1, y: 0, x: 0 }}
+      key={shouldAnimate ? "animate" : "static"}
+      initial={shouldAnimate ? getHiddenStyles(direction) : visible}
+      whileInView={shouldAnimate ? visible : undefined}
       viewport={{ once: true, amount: 0.2 }}
       transition={{
-        duration: isMobile ? 0 : duration,
-        delay: isMobile ? 0 : delay,
+        duration: shouldAnimate ? duration : 0,
+        delay: shouldAnimate ? delay : 0,
         ease: "easeOut",
       }}
       className={className}
