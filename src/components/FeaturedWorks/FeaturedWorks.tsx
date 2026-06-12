@@ -3,7 +3,7 @@
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import type { Splide as SplideInstance } from "@splidejs/splide";
 import "@splidejs/react-splide/css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Reveal } from "../ui/Reveal";
 import { ArrowRight } from "lucide-react";
@@ -16,8 +16,18 @@ interface StaticImageData {
   blurDataURL?: string;
 }
 
+const MOBILE_BREAKPOINT = 768;
+
 const FeaturedWorks = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(true);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   return (
     <section className="flex flex-col justify-center mx-[auto] mb-12 md:mb-24 xl:mb-0">
@@ -57,7 +67,7 @@ const FeaturedWorks = () => {
           perPage: 3,
           focus: "center",
           gap: "30px",
-          autoplay: true,
+          autoplay: !isMobile,
           interval: 5000,
           pauseOnHover: true,
           resetProgress: false,
@@ -87,9 +97,9 @@ const FeaturedWorks = () => {
                 src={currentImgSrc}
                 loading="lazy"
                 alt={`Image ${i + 1}`}
-                className=" w-full xl:w-96 h-[500px] md:h-[700px] lg:h-[900px] xl:h-[496px] object-cover rounded-xl"
+                className="w-full xl:w-96 h-[380px] md:h-[500px] xl:h-[496px] object-cover rounded-xl"
               />
-              <div className="card-overlay h-[500px] md:h-[700px] lg:h-[900px] xl:h-[496px]" />
+              <div className="card-overlay h-[380px] md:h-[500px] xl:h-[496px]" />
             </SplideSlide>
           );
         })}

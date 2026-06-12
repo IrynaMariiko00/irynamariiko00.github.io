@@ -27,12 +27,12 @@ const Comparison = () => {
           <Reveal direction="right" duration={1}>
             <div className="relative group rounded-2xl overflow-hidden border border-[var(--color-border-dark)] shadow-2xl leading-[0]">
               <div className="absolute top-4 left-4 z-10 pointer-events-none">
-                <span className="bg-black/40 backdrop-blur-md text-[var(--primary-color)] text-[10px] uppercase tracking-widest px-3 py-1 rounded-full">
+                <span className="bg-black/40 text-[var(--primary-color)] text-[10px] uppercase tracking-widest px-3 py-1 rounded-full max-md:backdrop-blur-none backdrop-blur-md">
                   Original
                 </span>
               </div>
               <div className="absolute top-4 right-4 z-10 pointer-events-none">
-                <span className="bg-blue/60 backdrop-blur-md text-[var(--primary-color)] text-[10px] uppercase tracking-widest px-3 py-1 rounded-full">
+                <span className="bg-blue/60 text-[var(--primary-color)] text-[10px] uppercase tracking-widest px-3 py-1 rounded-full max-md:backdrop-blur-none backdrop-blur-md">
                   Hand-drawn
                 </span>
               </div>

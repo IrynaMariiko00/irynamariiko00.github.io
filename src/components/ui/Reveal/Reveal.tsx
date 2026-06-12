@@ -50,15 +50,18 @@ export const Reveal = ({
 
   const shouldAnimate = isMobile === false;
 
+  if (!shouldAnimate) {
+    return <div className={className}>{children}</div>;
+  }
+
   return (
     <motion.div
-      key={shouldAnimate ? "animate" : "static"}
-      initial={shouldAnimate ? getHiddenStyles(direction) : visible}
-      whileInView={shouldAnimate ? visible : undefined}
+      initial={getHiddenStyles(direction)}
+      whileInView={visible}
       viewport={{ once: true, amount: 0.2 }}
       transition={{
-        duration: shouldAnimate ? duration : 0,
-        delay: shouldAnimate ? delay : 0,
+        duration,
+        delay,
         ease: "easeOut",
       }}
       className={className}

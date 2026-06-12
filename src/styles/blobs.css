@@ -24,6 +24,14 @@
   animation: moveBlob 15s infinite alternate ease-in-out;
 }
 
+@media (max-width: 767px) {
+  .blob {
+    filter: blur(60px);
+    animation: none;
+    opacity: 0.35;
+  }
+}
+
 .blob-1 {
   width: 400px;
   height: 400px;

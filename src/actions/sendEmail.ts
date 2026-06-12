@@ -6,10 +6,19 @@ import { FILE_LIMITS } from "~/constants/formData";
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function sendEmail(formData: FormData) {
-  const senderName = formData.get("userName");
-  const senderEmail = formData.get("userEmail") as string;
-  const senderTel = formData.get("userTel");
-  const senderMessage = formData.get("userMessage");
+  const handleEmptyField = (value: any) => {
+    const trimmed = String(value).trim();
+
+    if (trimmed === "") {
+      return "-";
+    }
+
+    return trimmed;
+  };
+  const senderName = handleEmptyField(formData.get("userName"));
+  const senderEmail = handleEmptyField(formData.get("userEmail") as string);
+  const senderTel = handleEmptyField(formData.get("userTel"));
+  const senderMessage = handleEmptyField(formData.get("userMessage"));
   const files = formData.getAll("attachments") as File[];
 
   const totalSize = files.reduce((acc, file) => acc + file.size, 0);

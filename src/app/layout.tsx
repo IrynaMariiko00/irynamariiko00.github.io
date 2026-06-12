@@ -30,7 +30,7 @@ export default function RootLayout({
       </head>
       <body>
         <ToastProvider>
-          <main className="bg-[var(--color-bg)]">
+          <main className="bg-[var(--color-bg)] min-h-screen">
             <Header />
             <ScrollToTop />
             {children}

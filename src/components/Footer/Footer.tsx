@@ -16,7 +16,7 @@ const Footer = () => {
           <div className="flex flex-row w-full md:gap-0 justify-between md:max-w-[50%] pt-[30px]">
             {footerSections.map((section, i) => (
               <div className="flex flex-col self-start" key={i}>
-                <h5 className="small-bold md:pl-1">{section.title}</h5>
+                <h5 className="small-bold">{section.title}</h5>
 
                 {section.items.map((item) => {
                   const IconComponent = item.icon;
