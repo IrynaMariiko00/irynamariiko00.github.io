@@ -43,7 +43,7 @@ export const Message = ({
             id="message"
             name="userMessage"
             placeholder="Tell me about your idea..."
-            className="w-full flex-1 bg-transparent min-h-[180px] text-[var(--color-primary)] p-5 outline-none resize-none placeholder:text-[var(--color-border-dark)]"
+            className="w-full flex-1 no-scrollbar bg-transparent min-h-[180px] text-[var(--color-primary)] p-5 outline-none resize-none placeholder:text-[var(--color-border-dark)]"
           />
 
           <SelectedFilesList
