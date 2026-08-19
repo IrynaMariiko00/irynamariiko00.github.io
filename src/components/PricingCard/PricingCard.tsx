@@ -30,7 +30,7 @@ const PricingCard = ({
         )}
         <div className="relative flex justify-between items-end mb-4">
           <h2 className="title font-normal mb-0">{size}</h2>
-          <p className="small-text text-[10px] lg:text-[14px] xl:text-[18px]">
+          <p className="small-text text-[10px] lg:text-[12px] xl:text-[14px]">
             {dimensions}
           </p>
         </div>

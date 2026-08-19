@@ -22,12 +22,11 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
       </div>
 
       <p
+        dangerouslySetInnerHTML={{ __html: answer }}
         className={`transition-all duration-300 overflow-hidden text ${
           isOpen ? "opacity-100 max-h-96 mt-2" : "opacity-0 max-h-0"
         }`}
-      >
-        {answer}
-      </p>
+      />
       <div className="hover-glow" />
     </li>
   );

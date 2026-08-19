@@ -1,3 +1,4 @@
+import { BASE_URL } from "~/config/env";
 import type { Benefit, FAQItemProps } from "~/types/addText";
 
 const blueShadowClass = "text-blue text-shadow-[var(--text-shadow-dark)]";
@@ -198,7 +199,7 @@ export const questions: FAQItemProps[] = [
   {
     question: "Is this fully manual work?",
     answer:
-      "Absolutely! Each piece is a unique artwork, hand-painted with love and attention to detail. No digital prints—just real art.",
+      "Absolutely! Each piece is a unique artwork, hand-painted with love and attention to detail. No digital prints-just real art.",
     category: "popular",
     featured: true,
   },
@@ -225,8 +226,7 @@ export const questions: FAQItemProps[] = [
   },
   {
     question: "Where can I see the prices?",
-    answer:
-      "You can check our standard rates here [посилання] or use our integrated AI calculator to get a quick quote based on your preferences.",
+    answer: `You can check our standard rates <a href="${BASE_URL}/price" class="text-blue">here</a> or use our integrated AI calculator to get a quick quote based on your preferences.`,
     category: "quick links",
     featured: true,
   },
@@ -266,15 +266,13 @@ export const questions: FAQItemProps[] = [
   },
   {
     question: "Where can I see examples of your work?",
-    answer:
-      "You can find examples of my portraits in the Portfolio section on the website.",
+    answer: `You can find examples of my portraits in the <a href="${BASE_URL}/portfolio" class="text-blue">Portfolio section</a> on the website.`,
     category: "quick links",
     featured: false,
   },
   {
     question: "Where can I read client testimonials?",
-    answer:
-      "You can read feedback from my clients in the Testimonials section on the website.",
+    answer: `You can read feedback from my clients in the <a href="${BASE_URL}/testimonials" class="text-blue">Testimonials section</a> on the website.`,
     category: "quick links",
     featured: false,
   },
