@@ -3,6 +3,7 @@ import { SelectedFilesList } from "./SelectedFilesList";
 import { useFileSelection } from "~/hooks/useFileSelection";
 import { useFormStatus } from "react-dom";
 import { Loader2 } from "lucide-react";
+import FileUploadField from "~/components/ui/FileUploadField/FileUploadField";
 
 type MessageProps = {
   fileInputRef: React.RefObject<HTMLInputElement | null>;

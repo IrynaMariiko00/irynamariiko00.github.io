@@ -8,7 +8,7 @@ export const FILE_LIMITS = {
   ERROR_MESSAGE: "Total size exceeds 10MB limit. Please remove some files.",
 };
 
-export const formData: FormField[] = [
+export const formDataHomePage: FormField[] = [
   {
     label: { htmlFor: "name", text: "Name:" },
     input: { id: "name", type: "text", required: true, name: "userName" },
@@ -18,12 +18,26 @@ export const formData: FormField[] = [
     input: { id: "email", type: "email", required: true, name: "userEmail" },
   },
   {
-    label: { htmlFor: "tel", text: "Phone (optional):" },
-    input: { id: "tel", type: "tel", required: false, name: "userTel" },
+    label: { htmlFor: "contact", text: "Alternative Contact (optional):" },
+    input: {
+      id: "contact",
+      type: "text",
+      required: false,
+      name: "alternativeContact",
+    },
+  },
+  {
+    label: { htmlFor: "message", text: "Message:" },
+    input: {
+      id: "message",
+      type: "text",
+      required: false,
+      name: "userMessage",
+    },
   },
 ];
 
-export const formDataPage: FormField[] = [
+export const formDataCommisionData: FormField[] = [
   {
     label: { htmlFor: "fullName", text: "Full Name*" },
     input: {
@@ -82,7 +96,7 @@ export const formDataPage: FormField[] = [
     input: {
       id: "size",
       type: "radio",
-      required: true,
+      required: false,
       name: "portraitSize",
       options: [
         {
@@ -124,7 +138,7 @@ export const formDataPage: FormField[] = [
     input: {
       id: "needFrame",
       type: "radio",
-      required: true,
+      required: false,
       name: "needFrame",
       options: [
         { id: "frame-yes", label: "Yes" },
@@ -137,7 +151,7 @@ export const formDataPage: FormField[] = [
     input: {
       id: "needMat",
       type: "radio",
-      required: true,
+      required: false,
       name: "needMat",
       options: [
         { id: "mat-yes", label: "Yes" },
@@ -146,13 +160,13 @@ export const formDataPage: FormField[] = [
     },
   },
   {
-    label: { htmlFor: "photos", text: "Upload your photos*" },
+    label: { htmlFor: "photos", text: "Upload your photos" },
     input: {
       id: "photos",
       type: "file",
-      required: true,
+      required: false,
       multiple: true,
-      name: "photos",
+      name: "attachments",
       accept: "image/png, image/jpeg",
     },
   },

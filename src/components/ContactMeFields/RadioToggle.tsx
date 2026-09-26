@@ -13,8 +13,8 @@ const RadioToggle = ({ input, label, onChange }: FieldProps) => {
             className="group relative flex flex-col p-4 overflow-hidden cursor-pointer transition-all duration-300 has-[:checked]:border-[var(--color-blue-light)] has-[:checked]:bg-blue/10"
           >
             <input
-              type="radio"
-              name={input.id}
+              type={input.type}
+              name={input.name}
               value={option.id}
               required={input.required}
               className="sr-only"

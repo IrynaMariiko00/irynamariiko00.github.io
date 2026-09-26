@@ -1,3 +1,5 @@
+import { useFileSelection } from "~/hooks/useFileSelection";
+
 type Option = {
   id: string;
   label: string;
@@ -25,3 +27,5 @@ export type FormField = {
 export interface FieldProps extends FormField {
   onChange?: (value: string) => void;
 }
+
+export type FileControls = ReturnType<typeof useFileSelection>;

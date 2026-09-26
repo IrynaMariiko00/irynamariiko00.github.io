@@ -1,6 +1,6 @@
-import type { FieldProps } from "~/types/formField";
+import type { FormField } from "~/types/formField";
 
-const TextArea = ({ label, input, onChange }: FieldProps) => {
+const TextArea = ({ label, input }: FormField) => {
   return (
     <div className="flex flex-col gap-4">
       <label
@@ -14,7 +14,6 @@ const TextArea = ({ label, input, onChange }: FieldProps) => {
         placeholder={input.placeholder}
         required={input.required}
         rows={3}
-        onChange={(e) => onChange?.(e.target.value)}
         className="w-full bg-transparent no-scrollbar placeholder:text-[var(--color-border-dark)] border border-[var(--color-border)] rounded-2xl py-4 px-3 text-[var(--primary-color)] outline-none resize-none min-h-[120px]"
       />
     </div>

@@ -12,6 +12,7 @@ const inputField = ({ label, input }: FormField) => {
       <input
         id={input.id}
         type={input.type}
+        name={input.name}
         placeholder={input.placeholder}
         required={input.required}
         className="bg-transparent [color-scheme:dark] border-b border-[var(--color-border)] py-3 px-1 outline-none focus:border-blue transition-colors text-[var(--color-primary)] placeholder:text-[var(--color-border-dark)]"

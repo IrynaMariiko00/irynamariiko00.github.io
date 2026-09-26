@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { sendEmail } from "~/actions/sendEmail";
+import { sendEmailHomePage } from "~/actions/sendEmailHomePage";
 import { useFileSelection } from "~/hooks/useFileSelection";
 import { PersonalData } from "./components/PersonalData";
 import { Message } from "./components/Message";
@@ -13,14 +13,15 @@ const ContactForm = () => {
     selectedFiles.forEach((file) => {
       data.append("attachments", file);
     });
-    const result = await sendEmail(data);
+    const result = await sendEmailHomePage(data);
 
-    if (result?.success) {
+    if (result && "success" in result) {
       showToast("Message sent successfully!", "success");
     }
 
     if (result?.error) {
       showToast(result.error, "error");
+      throw new Error(result.error);
     }
   };
 

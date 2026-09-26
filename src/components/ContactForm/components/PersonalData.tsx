@@ -1,4 +1,5 @@
-import { formData } from "~/constants/formData";
+import { formDataHomePage } from "~/constants/formData";
+import InputField from "~/components/ui/InputField/InputField";
 
 export const PersonalData = () => {
   return (
@@ -7,24 +8,11 @@ export const PersonalData = () => {
         Personal Data
       </legend>
 
-      {formData.map((item, index) => (
-        <div key={index} className="flex flex-col gap-2">
-          <label
-            htmlFor={item.label.htmlFor}
-            className="text-[0.75rem] uppercase tracking-[0.2em] text text-gray"
-          >
-            {item.label.text}
-          </label>
-          <input
-            id={item.input.id}
-            name={item.input.name}
-            type={item.input.type}
-            required={item.input.required}
-            placeholder={item.input.placeholder || ""}
-            className="bg-transparent [color-scheme:dark] border-b border-[var(--color-border)] py-2 px-1 outline-none focus:border-blue transition-colors text-[var(--color-primary)] placeholder:text-[var(--color-border-dark)]"
-          />
-        </div>
-      ))}
+      {formDataHomePage
+        .filter((item) => item.input.name !== "userMessage")
+        .map((item) => (
+          <InputField key={item.input.id} {...item} />
+        ))}
     </fieldset>
   );
 };

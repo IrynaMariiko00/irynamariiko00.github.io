@@ -18,7 +18,7 @@ export default function PortfolioPage() {
   });
 
   return (
-    <section className="relative min-h-screen pt-24 pb-12 px-6 overflow-hidden">
+    <section className="relative min-h-screen xl:pt-36 pt-24 pb-12 px-6 overflow-hidden">
       <LiquidBackground />
 
       <div className="max-w-7xl mx-auto relative z-10">

@@ -1,0 +1,29 @@
+.date-picker-popover {
+  .rdp-button_previous .rdp-chevron,
+  .rdp-button_next .rdp-chevron {
+    fill: var(--color-blue-text-light);
+    width: 20px;
+  }
+
+  .rdp-caption_label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 8px;
+  }
+
+  .rdp-day {
+    font-size: 0.75rem;
+    width: 32px;
+    height: 32px;
+  }
+
+  .rdp-selected .rdp-day_button {
+    border: 2px solid var(--color-blue-light);
+  }
+
+  .rdp-today .rdp-day_button {
+    color: var(--color-blue-light);
+    font-weight: bold;
+  }
+}

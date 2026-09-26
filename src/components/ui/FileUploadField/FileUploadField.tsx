@@ -1,27 +1,40 @@
-import { useState } from "react";
 import type { FormField } from "~/types/formField";
 import UploadFileIcon from "~/assets/icons/UploadFileIcon";
-import { useFileSelection } from "~/hooks/useFileSelection";
+import { AlertCircle } from "lucide-react";
 
-const FileUploadField = ({ label }: FormField) => {
-  const { selectedFiles, handleDelete, handleFileChange } = useFileSelection();
+type FileUploadFieldProps = FormField & {
+  selectedFiles: File[];
+  handleDelete: (index: number, e: React.MouseEvent) => void;
+  handleFileChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  fileSizeError: string | null;
+};
+
+const FileUploadField = ({
+  label,
+  input,
+  selectedFiles,
+  handleDelete,
+  handleFileChange,
+  fileSizeError,
+}: FileUploadFieldProps) => {
   return (
-    <div className="md:col-span-2 mt-4">
+    <div className="mt-4">
       <label className="text-[0.75rem] uppercase tracking-[0.2em] text text-gray mb-4 block">
         {label.text}
       </label>
       <div className="group relative w-full h-32 border border-dashed border-[var(--color-border)] rounded-2xl flex flex-col items-start p-6 justify-center hover:bg-white/[0.02] transition-all cursor-pointer">
         <input
-          type="file"
-          id="file-upload"
+          type={input.type}
+          id={input.id}
           className="sr-only"
           multiple
+          accept={input.accept}
           onChange={handleFileChange}
         />
 
         {selectedFiles.length === 0 ? (
           <label
-            htmlFor="file-upload"
+            htmlFor={input.id}
             className="flex flex-col items-center justify-center w-full h-32 cursor-pointer group"
           >
             <UploadFileIcon />
@@ -51,7 +64,7 @@ const FileUploadField = ({ label }: FormField) => {
             ))}
             {selectedFiles.length < 5 && (
               <label
-                htmlFor="file-upload"
+                htmlFor={input.id}
                 className="w-24 h-24 border border-dashed border-[var(--color-border)] rounded-xl pb-2 flex flex-col items-center justify-center hover:bg-white/[0.05] hover:border-blue/50 transition-all cursor-pointer group"
               >
                 <span className="text-[1.5rem] text-[var(--color-border-dark)] group-hover:text-blue">
@@ -65,6 +78,12 @@ const FileUploadField = ({ label }: FormField) => {
           </div>
         )}
       </div>
+      {fileSizeError && (
+        <div className="flex items-center gap-2 text-red-400 animate-in slide-in-from-left-2 duration-300">
+          <AlertCircle size={12} className="shrink-0" />
+          <p className="extra-small-text">{fileSizeError}</p>
+        </div>
+      )}
     </div>
   );
 };

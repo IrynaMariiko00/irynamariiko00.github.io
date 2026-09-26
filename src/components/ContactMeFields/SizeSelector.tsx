@@ -9,7 +9,7 @@ const SizeSelector = ({ input, label }: FormField) => {
   };
 
   return (
-    <div className="md:col-span-2 flex flex-col gap-4 mt-4">
+    <div className="flex flex-col gap-4 mt-4">
       <label className="text-[0.75rem] uppercase tracking-[0.2em] text text-gray">
         {label.text}
       </label>
@@ -32,7 +32,7 @@ const SizeSelector = ({ input, label }: FormField) => {
 
               <input
                 type="radio"
-                name={input.id}
+                name={input.name}
                 value={option.id}
                 required={input.required}
                 className="sr-only"
