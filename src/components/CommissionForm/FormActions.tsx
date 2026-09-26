@@ -19,6 +19,7 @@ export function renderField(
   hasFrame: boolean,
   setHasFrame: (value: boolean) => void,
   fileControls: FileControls,
+  resetCount: number,
 ) {
   const { input } = field;
   const { selectedFiles, handleDelete, handleFileChange, fileSizeError } =
@@ -28,25 +29,36 @@ export function renderField(
     return null;
   }
 
+  if (input.id === "width" || input.id === "height") {
+    return null;
+  }
+
   let fieldNode;
 
   switch (input.id) {
     case "size":
-      fieldNode = <SizeSelector {...field} />;
+      fieldNode = <SizeSelector {...field} key={`size-${resetCount}`} />;
       break;
     case "deadline":
-      fieldNode = <DatePicker {...field} subLabel="Shipping takes 2-3 weeks" />;
+      fieldNode = (
+        <DatePicker
+          {...field}
+          subLabel="Shipping takes 2-3 weeks"
+          key={`date-${resetCount}`}
+        />
+      );
       break;
     case "needFrame":
       fieldNode = (
         <RadioToggle
           {...field}
+          key={`frame-${resetCount}`}
           onChange={(val) => setHasFrame(val === "Yes")}
         />
       );
       break;
     case "needMat":
-      fieldNode = <RadioToggle {...field} />;
+      fieldNode = <RadioToggle {...field} key={`mat-${resetCount}`} />;
       break;
     case "message":
       fieldNode = <TextArea {...field} />;

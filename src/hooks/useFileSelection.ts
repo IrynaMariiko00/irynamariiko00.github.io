@@ -17,6 +17,11 @@ export const useFileSelection = () => {
     );
   };
 
+  const resetFiles = () => {
+    console.log("RESET FILES");
+    setSelectedFiles([]);
+  };
+
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       const newFiles = Array.from(e.target.files);
@@ -27,6 +32,7 @@ export const useFileSelection = () => {
   return {
     selectedFiles,
     handleDelete,
+    resetFiles,
     handleFileChange,
     fileSizeError,
     isOverLimit: !!fileSizeError,

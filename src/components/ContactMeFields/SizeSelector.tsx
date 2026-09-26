@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { FormField } from "~/types/formField";
+import { formDataCommisionData } from "~/constants/formData";
 
 const SizeSelector = ({ input, label }: FormField) => {
   const [selectedValue, setSelectedValue] = useState<string | null>(null);
@@ -7,6 +8,14 @@ const SizeSelector = ({ input, label }: FormField) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedValue(e.target.value);
   };
+
+  const widthField = formDataCommisionData.find(
+    (field) => field.input.name === "width",
+  );
+
+  const heightField = formDataCommisionData.find(
+    (field) => field.input.name === "height",
+  );
 
   return (
     <div className="flex flex-col gap-4 mt-4">
@@ -65,31 +74,32 @@ const SizeSelector = ({ input, label }: FormField) => {
 
                 {isCustom && isSelected && (
                   <div className="flex gap-4 animate-in fade-in slide-in-from-right-4 duration-500 items-end pb-1">
-                    <div className="flex flex-col gap-2 flex-1">
-                      <span className="text-[0.6rem] text text-gray uppercase tracking-widest">
-                        Width (cm)
-                      </span>
-                      <input
-                        name="custom_width"
-                        className="bg-transparent shadow-[0_1px_0_0_rgba(255,255,255,0.2)] text-[var(--primary-color)] outline-none text-sm p-1 w-full transition-colors"
-                        placeholder="0"
-                        required
-                        onClick={(e) => e.stopPropagation()}
-                      />
-                    </div>
+                    {[widthField, heightField].map(
+                      (field) =>
+                        field && (
+                          <div
+                            key={field.input.id}
+                            className="flex flex-col gap-2 flex-1"
+                          >
+                            <label
+                              htmlFor={field.input.id}
+                              className="text-[0.6rem] text-gray uppercase tracking-widest"
+                            >
+                              {field.label.text}
+                            </label>
 
-                    <div className="flex flex-col gap-2 flex-1 pr-20">
-                      <span className="text-[0.6rem] text text-gray uppercase tracking-widest">
-                        Height (cm)
-                      </span>
-                      <input
-                        name="custom_height"
-                        className="bg-transparent shadow-[0_1px_0_0_rgba(255,255,255,0.2)] text-[var(--primary-color)] outline-none text-sm p-1 w-full transition-colors"
-                        placeholder="0"
-                        required
-                        onClick={(e) => e.stopPropagation()}
-                      />
-                    </div>
+                            <input
+                              id={field.input.id}
+                              name={field.input.name}
+                              type="number"
+                              placeholder={field.input.placeholder}
+                              required
+                              onClick={(e) => e.stopPropagation()}
+                              className="bg-transparent shadow-[0_1px_0_0_rgba(255,255,255,0.2)] text-[var(--primary-color)] outline-none text-sm p-1 w-full transition-colors [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                            />
+                          </div>
+                        ),
+                    )}
                   </div>
                 )}
               </div>

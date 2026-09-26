@@ -1,9 +1,12 @@
-import { attachmentOptions } from "~/constants/formData";
+import { attachmentOptions, formDataHomePage } from "~/constants/formData";
 import { SelectedFilesList } from "./SelectedFilesList";
 import { useFileSelection } from "~/hooks/useFileSelection";
 import { useFormStatus } from "react-dom";
 import { Loader2 } from "lucide-react";
-import FileUploadField from "~/components/ui/FileUploadField/FileUploadField";
+
+const messageField = formDataHomePage.find(
+  (field) => field.input.name === "userMessage",
+)!;
 
 type MessageProps = {
   fileInputRef: React.RefObject<HTMLInputElement | null>;
@@ -16,6 +19,7 @@ export const Message = ({
   photoInputRef,
   fileControls,
 }: MessageProps) => {
+  const { label, input } = messageField;
   const { selectedFiles, handleDelete, fileSizeError, isOverLimit } =
     fileControls;
   const handleButtonClick = (id: string) => {
@@ -33,17 +37,18 @@ export const Message = ({
 
       <div className="flex flex-col gap-3 h-full">
         <label
-          htmlFor="message"
+          htmlFor={label.htmlFor}
           className="text-[0.75rem] uppercase tracking-[0.2em] text text-gray"
         >
-          Message
+          {label.text}
         </label>
 
         <div className="flex flex-col h-full rounded-3xl border border-[var(--color-border)] focus-within:border-blue transition-colors duration-300 overflow-hidden bg-transparent">
           <textarea
-            id="message"
-            name="userMessage"
-            placeholder="Tell me about your idea..."
+            id={input.id}
+            name={input.name}
+            placeholder={input.placeholder}
+            required={input.required}
             className="w-full flex-1 no-scrollbar bg-transparent min-h-[180px] text-[var(--color-primary)] p-5 outline-none resize-none placeholder:text-[var(--color-border-dark)]"
           />
 

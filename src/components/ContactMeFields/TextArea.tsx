@@ -11,6 +11,7 @@ const TextArea = ({ label, input }: FormField) => {
       </label>
       <textarea
         id={input.id}
+        name={input.name}
         placeholder={input.placeholder}
         required={input.required}
         rows={3}

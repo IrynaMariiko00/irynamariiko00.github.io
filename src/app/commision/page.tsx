@@ -13,10 +13,18 @@ import { renderField } from "~/components/CommissionForm/FormActions";
 
 export default function ContactMePage() {
   const [hasFrame, setHasFrame] = useState(false);
+  const [resetCount, setResetCount] = useState(0);
   const handleScrollTop = useScrollTop();
   const { showToast } = useToast();
   const fileControls = useFileSelection();
-  const { selectedFiles, isOverLimit } = fileControls;
+
+  const resetCustomForm = () => {
+    setHasFrame(false);
+    setResetCount((prev) => prev + 1);
+    resetFiles();
+  };
+
+  const { selectedFiles, isOverLimit, resetFiles } = fileControls;
 
   const handleAction = async (data: FormData) => {
     data.delete("attachments");
@@ -28,6 +36,7 @@ export default function ContactMePage() {
 
     if (result && "success" in result) {
       showToast("Message sent successfully!", "success");
+      resetCustomForm();
     }
 
     if (result?.error) {
@@ -62,11 +71,20 @@ export default function ContactMePage() {
             action={handleAction}
           >
             {formDataCommisionData.map((field) =>
-              renderField(field, hasFrame, setHasFrame, fileControls),
+              renderField(
+                field,
+                hasFrame,
+                setHasFrame,
+                fileControls,
+                resetCount,
+              ),
             )}
             <FormActions
               onScrollTop={handleScrollTop}
               isOverLimit={isOverLimit}
+              onReset={() => {
+                resetCustomForm();
+              }}
             />
           </form>
         </Reveal>

@@ -13,8 +13,6 @@ export async function sendEmailCommisionPage(formData: FormData) {
 
   const subject = "New Detailed Message (PORTRAITS)";
   const files = formData.getAll("attachments") as File[];
-  console.log("attachments", formData.getAll("attachments"));
-  console.log("photos", formData.getAll("photos"));
 
   const validationResult = validateFormData(
     formDataCommisionData,
@@ -35,6 +33,7 @@ export async function sendEmailCommisionPage(formData: FormData) {
         <p><strong>Deadline:</strong> ${validatedData.userDeadline}</p>
         <p><strong>Contact:</strong> ${validatedData.userAlternativeContact}</p>
         <p><strong>Size:</strong> ${validatedData.portraitSize}</p>
+        <p><strong>Custom height and width(cm):</strong> ${validatedData.width}, ${validatedData.height}</p>
         <p><strong>Need Frame:</strong> ${validatedData.needFrame}</p>
         <p><strong>Need Mat:</strong> ${validatedData.needMat}</p>
         <p><strong>Message:</strong> ${validatedData.userMessage}</p>

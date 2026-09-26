@@ -27,12 +27,13 @@ export const formDataHomePage: FormField[] = [
     },
   },
   {
-    label: { htmlFor: "message", text: "Message:" },
+    label: { htmlFor: "message", text: "Message" },
     input: {
       id: "message",
       type: "text",
       required: false,
       name: "userMessage",
+      placeholder: "Tell me about your idea...",
     },
   },
 ];
@@ -141,8 +142,8 @@ export const formDataCommisionData: FormField[] = [
       required: false,
       name: "needFrame",
       options: [
-        { id: "frame-yes", label: "Yes" },
-        { id: "frame-no", label: "No" },
+        { id: "yes", label: "Yes" },
+        { id: "no", label: "No" },
       ],
     },
   },
@@ -154,8 +155,8 @@ export const formDataCommisionData: FormField[] = [
       required: false,
       name: "needMat",
       options: [
-        { id: "mat-yes", label: "Yes" },
-        { id: "mat-no", label: "No" },
+        { id: "yes", label: "Yes" },
+        { id: "no", label: "No" },
       ],
     },
   },
@@ -177,6 +178,32 @@ export const formDataCommisionData: FormField[] = [
       type: "text",
       name: "userMessage",
       placeholder: "Tell me about your idea...",
+      required: false,
+    },
+  },
+  {
+    label: {
+      htmlFor: "width",
+      text: "Width (cm)",
+    },
+    input: {
+      id: "width",
+      type: "number",
+      placeholder: "0",
+      name: "width",
+      required: false,
+    },
+  },
+  {
+    label: {
+      htmlFor: "height",
+      text: "Height (cm)",
+    },
+    input: {
+      id: "height",
+      type: "number",
+      placeholder: "0",
+      name: "height",
       required: false,
     },
   },

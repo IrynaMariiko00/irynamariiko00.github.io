@@ -4,9 +4,11 @@ import { useFormStatus } from "react-dom";
 export function FormActions({
   onScrollTop,
   isOverLimit,
+  onReset,
 }: {
   onScrollTop: () => void;
   isOverLimit: boolean;
+  onReset: () => void;
 }) {
   const { pending } = useFormStatus();
 
@@ -15,7 +17,9 @@ export function FormActions({
       <button
         type="reset"
         className="w-[45%] xl:w-[20%] glass-btn py-3 justify-center uppercase rounded-2xl"
-        onClick={onScrollTop}
+        onClick={() => {
+          onReset();
+        }}
       >
         Reset
       </button>
@@ -23,7 +27,6 @@ export function FormActions({
         type="submit"
         disabled={pending || isOverLimit}
         className="w-[45%] xl:w-[20%] px-1 py-1 xl:py-3 blue-btn rounded-2xl"
-        onClick={onScrollTop}
       >
         {pending ? <Loader2 className="animate-spin" /> : "Send Request"}
       </button>
